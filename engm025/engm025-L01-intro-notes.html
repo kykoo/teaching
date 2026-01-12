@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dr.&nbsp;Ki-Young Koo">
+
+<title>Introduction to Structural Health Monitoring</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="engm025-L01-intro_files/libs/clipboard/clipboard.min.js"></script>
+<script src="engm025-L01-intro_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="engm025-L01-intro_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="engm025-L01-intro_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="engm025-L01-intro_files/libs/quarto-html/popper.min.js"></script>
+<script src="engm025-L01-intro_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="engm025-L01-intro_files/libs/quarto-html/anchor.min.js"></script>
+<link href="engm025-L01-intro_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="engm025-L01-intro_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="engm025-L01-intro_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="engm025-L01-intro_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="engm025-L01-intro_files/libs/bootstrap/bootstrap-9b2b39172b51de906ea9faad4e4656e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#smart-structure" id="toc-smart-structure" class="nav-link active" data-scroll-target="#smart-structure">Smart Structure?</a></li>
+  <li><a href="#definition-of-shm-12" id="toc-definition-of-shm-12" class="nav-link" data-scroll-target="#definition-of-shm-12">Definition of SHM (1/2)</a></li>
+  <li><a href="#definition-of-shm-22" id="toc-definition-of-shm-22" class="nav-link" data-scroll-target="#definition-of-shm-22">Definition of SHM (2/2)</a></li>
+  <li><a href="#shm-process" id="toc-shm-process" class="nav-link" data-scroll-target="#shm-process">SHM Process</a></li>
+  <li><a href="#shm-examples" id="toc-shm-examples" class="nav-link" data-scroll-target="#shm-examples">SHM Examples</a></li>
+  <li><a href="#rugeley-chimney-staffordshire" id="toc-rugeley-chimney-staffordshire" class="nav-link" data-scroll-target="#rugeley-chimney-staffordshire">Rugeley Chimney, Staffordshire</a></li>
+  <li><a href="#new-chimney-construction-haulted" id="toc-new-chimney-construction-haulted" class="nav-link" data-scroll-target="#new-chimney-construction-haulted">New Chimney Construction Haulted</a></li>
+  <li><a href="#unlucky-orientation" id="toc-unlucky-orientation" class="nav-link" data-scroll-target="#unlucky-orientation">Unlucky Orientation</a></li>
+  <li><a href="#cfd-simulation" id="toc-cfd-simulation" class="nav-link" data-scroll-target="#cfd-simulation">CFD Simulation</a></li>
+  <li><a href="#response-of-rugeley-power-station" id="toc-response-of-rugeley-power-station" class="nav-link" data-scroll-target="#response-of-rugeley-power-station">Response of Rugeley Power-Station</a></li>
+  <li><a href="#response-of-rugeley-power-station-1" id="toc-response-of-rugeley-power-station-1" class="nav-link" data-scroll-target="#response-of-rugeley-power-station-1">Response of Rugeley Power-Station</a></li>
+  <li><a href="#online-damping-estimation" id="toc-online-damping-estimation" class="nav-link" data-scroll-target="#online-damping-estimation">Online Damping Estimation</a></li>
+  <li><a href="#demolition-of-oldnew-chimneys" id="toc-demolition-of-oldnew-chimneys" class="nav-link" data-scroll-target="#demolition-of-oldnew-chimneys">Demolition of Old/New Chimneys</a></li>
+  <li><a href="#post-project-review" id="toc-post-project-review" class="nav-link" data-scroll-target="#post-project-review">Post-project Review</a></li>
+  <li><a href="#tamar-bridge-shm" id="toc-tamar-bridge-shm" class="nav-link" data-scroll-target="#tamar-bridge-shm">Tamar Bridge SHM</a>
+  <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#overview-1" id="toc-overview-1" class="nav-link" data-scroll-target="#overview-1">Overview</a></li>
+  <li><a href="#overview-2" id="toc-overview-2" class="nav-link" data-scroll-target="#overview-2">Overview</a></li>
+  <li><a href="#restrengthening-in-2000" id="toc-restrengthening-in-2000" class="nav-link" data-scroll-target="#restrengthening-in-2000">Restrengthening in 2000</a></li>
+  <li><a href="#fugro-system" id="toc-fugro-system" class="nav-link" data-scroll-target="#fugro-system">Fugro System</a></li>
+  <li><a href="#fugro-system-1" id="toc-fugro-system-1" class="nav-link" data-scroll-target="#fugro-system-1">Fugro System</a></li>
+  <li><a href="#ves-sensors-added-in-2006" id="toc-ves-sensors-added-in-2006" class="nav-link" data-scroll-target="#ves-sensors-added-in-2006">VES Sensors added in 2006</a></li>
+  <li><a href="#ves-sensors-added-in-2009" id="toc-ves-sensors-added-in-2009" class="nav-link" data-scroll-target="#ves-sensors-added-in-2009">VES Sensors added in 2009</a></li>
+  <li><a href="#vesfsdl-website" id="toc-vesfsdl-website" class="nav-link" data-scroll-target="#vesfsdl-website">VES/FSDL Website</a></li>
+  <li><a href="#data-integration-challenge" id="toc-data-integration-challenge" class="nav-link" data-scroll-target="#data-integration-challenge">Data Integration Challenge</a></li>
+  <li><a href="#reflection-on-tamar-shm" id="toc-reflection-on-tamar-shm" class="nav-link" data-scroll-target="#reflection-on-tamar-shm">Reflection on Tamar SHM</a></li>
+  <li><a href="#closure" id="toc-closure" class="nav-link" data-scroll-target="#closure">Closure</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="engm025-L01-intro-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introduction to Structural Health Monitoring</h1>
+<p class="subtitle lead">Smart Civil Structures: L01</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dr.&nbsp;Ki-Young Koo </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Jan 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="smart-structure" class="level2">
+<h2 class="anchored" data-anchor-id="smart-structure">Smart Structure?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="intro/smart-structure.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
+</figure>
+</div>
+<p>A smart structure is an engineered system that can sense, interpret, and respond to changes in its environment or its own condition in a self-adaptive way.</p>
+<p>In simple terms, a smart structure behaves a bit like a living organism:</p>
+<ul>
+<li>it feels what is happening,</li>
+<li>thinks about what it means,</li>
+<li>and acts to improve performance, safety, or durability.</li>
+</ul>
+</section>
+<section id="definition-of-shm-12" class="level2">
+<h2 class="anchored" data-anchor-id="definition-of-shm-12">Definition of SHM (1/2)</h2>
+<div class="incremental">
+<p>Structural Health Monitoring (SHM) is the continuous or periodic process of measuring a structure’s response to detect, localize, and quantify <strong>damage</strong>, and to inform maintenance and safety decisions.</p>
+<ul class="incremental">
+<li>Uses sensors (e.g., acceleration, strain, displacement) and data acquisition to track condition over time.</li>
+<li>Relies on models or baselines to compare measured behavior against expected performance.</li>
+<li>Aims to detect anomalies early, reduce inspection costs, and improve reliability and safety.</li>
+<li>Typical outputs: damage indicators, remaining useful life estimates, and alarms/alerts for operators.</li>
+</ul>
+</div>
+</section>
+<section id="definition-of-shm-22" class="level2">
+<h2 class="anchored" data-anchor-id="definition-of-shm-22">Definition of SHM (2/2)</h2>
+<div class="incremental">
+<p>Structural Health Monitoring (SHM) is the continuous or periodic process of measuring a structure’s <strong>performance in the way it was designed to behave</strong>.</p>
+<ul class="incremental">
+<li>Any unexpected behaviour has to be identified and addressed</li>
+<li>The performance in the designed behavour needs to be measured and monitored</li>
+</ul>
+</div>
+</section>
+<section id="shm-process" class="level2">
+<h2 class="anchored" data-anchor-id="shm-process">SHM Process</h2>
+<!-- ![](engm025-L01-intro_files/figure-html/c1b764a9-1-Gemini_Generated_Image_voq9qwvoq9qwvoq9.png){.width=100%} -->
+<p><img src="assets/shm-overview.png" class="img-fluid"></p>
+<p>The image shows an end‑to‑end SHM pipeline on a long-span bridge.</p>
+<p>Sensors distributed along the deck and cables measure responses such as displacement, acceleration, tilt, strain, and environmental loads (wind/temperature). Those analog signals feed a data‑acquisition unit (DAQ) mounted on the structure, where they’re conditioned, filtered, and converted to digital form.</p>
+<p>From there, data flows to a local edge computer on or near the bridge for initial processing and health checks. A wireless link (e.g., 4G/IoT/LoRaWAN) transmits the data to a cloud server for storage, visualization, and heavier analytics.</p>
+<p>In the cloud, structural changes are detected and quantified, enabling localization of damage and prognosis of performance.</p>
+<p>Finally, insights are delivered to operators through a decision‑support interface, guiding maintenance scheduling and interventions. This closes the loop from sensing and data handling to actionable engineering decisions.</p>
+</section>
+<section id="shm-examples" class="level2">
+<h2 class="anchored" data-anchor-id="shm-examples">SHM Examples</h2>
+<p>Two SHM exercises are presented here for your understanding on Structural Health Monitoring.</p>
+<ul>
+<li>Rugeley Chimney Monitoring</li>
+<li>Tamar Bridge Monitoring</li>
+</ul>
+</section>
+<section id="rugeley-chimney-staffordshire" class="level2">
+<h2 class="anchored" data-anchor-id="rugeley-chimney-staffordshire">Rugeley Chimney, Staffordshire</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/Rugeley-old.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<ul>
+<li>Original chimney (183m high) commissioned in 1970</li>
+<li>New chimney started to construct from 2007 for a Flue Gas Desulphurisation</li>
+<li>Original chimney swayed much on a windy day, a risk of collapse alarmed</li>
+</ul>
+<!-- ![](assets/Rugeley-old.jpg) -->
+</section>
+<section id="new-chimney-construction-haulted" class="level2">
+<h2 class="anchored" data-anchor-id="new-chimney-construction-haulted">New Chimney Construction Haulted</h2>
+<p><img src="assets/rugeley-old-new-chimney.png" class="img-fluid"></p>
+</section>
+<section id="unlucky-orientation" class="level2">
+<h2 class="anchored" data-anchor-id="unlucky-orientation">Unlucky Orientation</h2>
+<div class="columns">
+<div class="column">
+<p><img src="assets/rugeley-orientation.png" class="img-fluid"></p>
+</div><div class="column">
+<p><img src="assets/rugeley-windrose.jpg" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="cfd-simulation" class="level2">
+<h2 class="anchored" data-anchor-id="cfd-simulation">CFD Simulation</h2>
+<ul>
+<li>Enhanced Vortext Shedding</li>
+</ul>
+<video controls="" width="800">
+<source src="assets/rugeley_cfd.mp4" type="video/mp4">
+</video>
+</section>
+<section id="response-of-rugeley-power-station" class="level2">
+<h2 class="anchored" data-anchor-id="response-of-rugeley-power-station">Response of Rugeley Power-Station</h2>
+<ul>
+<li>Installing a Tunned-Mass-Damper on Old Chimney</li>
+</ul>
+<div class="columns">
+<div class="column">
+<p><img src="assets/rugeley-tmd-1.png" class="img-fluid"></p>
+</div><div class="column">
+<ul>
+<li>42 tonnes mass (~3% mass ratio)</li>
+<li>5 oil dampers, 180kNs/m damping each</li>
+<li>450mm travel</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="response-of-rugeley-power-station-1" class="level2">
+<h2 class="anchored" data-anchor-id="response-of-rugeley-power-station-1">Response of Rugeley Power-Station</h2>
+<ul>
+<li>Installing Vibration Monitoring System</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img src="assets/rugeleye-daq-system.png" class="img-fluid"></p>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Alarming/site-evaculation for high-sways</li>
+<li>Validating Performance of TMD</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="online-damping-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="online-damping-estimation">Online Damping Estimation</h2>
+<ul>
+<li>Showed that TMD actually worked</li>
+<li>Damping increased from 0.7% to around 4% (29 Feb 2008)</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="engm025-L01-intro_files/figure-html/994cc0b3-2-rugeley-wind.png" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<p><img src="engm025-L01-intro_files/figure-html/994cc0b3-1-rugeley-damping-est.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="demolition-of-oldnew-chimneys" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="demolition-of-oldnew-chimneys">Demolition of Old/New Chimneys</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>After completion of New Chimney construction, the Old chimney had been demolished in 2009-2010</li>
+<li>The owner announced the station’s closure 2016 due to falling power prices and high carbon costs</li>
+<li>The new chimney and four cooling towers were blown down in 2021.<br>
+</li>
+</ul>
+</div>
+<div class="fragment">
+<p><a href="https://www.youtube.com/watch?v=afI8uU54Sd0">Demolition Video</a></p>
+</div>
+</section>
+<section id="post-project-review" class="level2">
+<h2 class="anchored" data-anchor-id="post-project-review">Post-project Review</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>The two objectives of the monitoring system</p>
+<ul class="incremental">
+<li>Warning site-workers in case of a risk of collapse due to a large vibration in the old chimney</li>
+<li>Confirming effectiveness of the tunned-mass-damper</li>
+</ul></li>
+<li><p>VES helped the Rugeley powerstation to manage a risk of collapse and to construct the new chimney successfully.</p></li>
+<li><p>This was <a href="https://www.exeter.ac.uk/research/groups/engineering/ves/capabilities/rugeley/">the impact case study</a> successfully demonstrated usefulness of Innovative SHM for real-world</p></li>
+</ul>
+</div>
+</section>
+<section id="tamar-bridge-shm" class="level1">
+<h1>Tamar Bridge SHM</h1>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p><img src="tamar_bridge/overview1.png" class="img-fluid" style="width:100.0%"></p>
+</section>
+<section id="overview-1" class="level2">
+<h2 class="anchored" data-anchor-id="overview-1">Overview</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img src="tamar_bridge/tamar_bridge_map.png" class="img-fluid"></p>
+</div><div class="column" style="width:55%;">
+<p><img src="tamar_bridge/overview2.jpg" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="overview-2" class="level2">
+<h2 class="anchored" data-anchor-id="overview-2">Overview</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<p><img src="tamar_bridge/overview3.png" class="img-fluid"></p>
+</div><div class="column" style="width:42%;">
+<p><img src="tamar_bridge/overview4.jpg" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="restrengthening-in-2000" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="restrengthening-in-2000">Restrengthening in 2000</h2>
+<p>To meet the EU directive to carry HGVs up to 40 tonf</p>
+<p><img src="tamar_bridge/restrengthening.png" class="img-fluid" style="width:100.0%"></p>
+<ul>
+<li>Heavy concrete deck had been replaced by light weight orthotropic deck</li>
+<li>Cantilever lanes were added on both sides: southern lane for pedestrian, northern lane for traffic</li>
+<li>Additional stay cables were added to carry temperary consruction loads</li>
+</ul>
+<div class="notes">
+<ul>
+<li>this unusual restrengthing and structural configuration required a need of construnction monitoring system.</li>
+</ul>
+</div>
+</section>
+<section id="fugro-system" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="fugro-system">Fugro System</h2>
+<p>Installed for restrengthening monitoring and beyond for static measurements</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tamar_bridge/fugro-tension-sensor.jpg" class="img-fluid figure-img"></p>
+<figcaption>Stay Cable Tension Sensor (strain gauge)</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Stay cable tension, deck-level sensor, wind, and temperature</li>
+<li>In total, 90 channels of static load and response sampled at 1 Hz</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="fugro-system-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="fugro-system-1">Fugro System</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tamar_bridge/level.png" class="img-fluid figure-img"></p>
+<figcaption>Level Sensor</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tamar_bridge/temperature.png" class="img-fluid figure-img"></p>
+<figcaption>Temperature</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tamar_bridge/wind.png" class="img-fluid figure-img"></p>
+<figcaption>Wind Speed</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ves-sensors-added-in-2006" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="ves-sensors-added-in-2006">VES Sensors added in 2006</h2>
+<p>QA servo accelerometers</p>
+<ul>
+<li><p>Main-span Deck (3 qt: 2 vertical + 1 horizontal)</p></li>
+<li><p>Additional Stay cables (8 qts: on 4 stay cables as a perpendicular pairs)</p></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tamar_bridge/qa_on_deck.png" class="img-fluid figure-img"></p>
+<figcaption>QA Accelerometer on Deck</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tamar_bridge/qa_on_stay.png" class="img-fluid figure-img"></p>
+<figcaption>QA Accelerometer on Stay Cable</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ves-sensors-added-in-2009" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="ves-sensors-added-in-2009">VES Sensors added in 2009</h2>
+<p>Leica Robotic Total Station measuring 3D movement of reflectors on the bridge.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tamar_bridge/total-station.png" class="img-fluid figure-img"></p>
+<figcaption>RTS on control room roof</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tamar_bridge/reflector.png" class="img-fluid figure-img"></p>
+<figcaption>Reflector on Abutment</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>15 reflectors
+<ul>
+<li>11 on deck,</li>
+<li>2 on top of towers</li>
+<li>2 on Abutments</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tamar_bridge/reflectors.png" class="img-fluid figure-img"></p>
+<figcaption>Reflector Map</figcaption>
+</figure>
+</div>
+</section>
+<section id="vesfsdl-website" class="level2">
+<h2 class="anchored" data-anchor-id="vesfsdl-website">VES/FSDL Website</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tamar_bridge/google-website.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Tamar Bridge SHM Website</figcaption>
+</figure>
+</div>
+</section>
+<section id="data-integration-challenge" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="data-integration-challenge">Data Integration Challenge</h2>
+<p><img src="tamar_bridge/summary_table_map.png" class="img-fluid"></p>
+<ul>
+<li><p><strong>SUMMARY table</strong> contains 30-minute mean/RMS values to unitify various measurements with different sampling rates.</p></li>
+<li><p>This is the brilliant way useful for all SHM systems.</p></li>
+</ul>
+</section>
+<section id="reflection-on-tamar-shm" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="reflection-on-tamar-shm">Reflection on Tamar SHM</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Tamar Bridge SHM is still on-going</li>
+<li>The structural behaviour of Tamar Bridge under thermal/vehicle loadings have been understood by some amount,</li>
+<li>But there must be much further to be found in the future by the next geration.</li>
+</ul>
+</div>
+</section>
+<section id="closure" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="closure">Closure</h2>
+<p>This first part of the module, Structural Health Monitoring, will cover the following technical Elements with real examples</p>
+<ul>
+<li>Sensors</li>
+<li>DAQ</li>
+<li>Signal Processing</li>
+<li>Operational Modal Analysis</li>
+<li>Finite Model Updating</li>
+<li>etc</li>
+</ul>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

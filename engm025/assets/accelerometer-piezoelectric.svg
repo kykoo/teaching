@@ -1,0 +1,18 @@
+<svg width="640" height="400" viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffe9d6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffd1a3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#grad2)" />
+  <rect x="180" y="120" width="280" height="160" rx="12" ry="12" fill="#b85b1a" opacity="0.15" />
+  <rect x="210" y="140" width="220" height="40" rx="6" ry="6" fill="#b85b1a" />
+  <rect x="210" y="200" width="220" height="40" rx="6" ry="6" fill="#e38c3a" />
+  <rect x="210" y="260" width="220" height="10" rx="2" ry="2" fill="#b85b1a" />
+  <circle cx="320" cy="160" r="14" fill="#ffd1a3" stroke="#fff" stroke-width="4" />
+  <circle cx="320" cy="220" r="14" fill="#ffd1a3" stroke="#fff" stroke-width="4" />
+  <text x="50%" y="60" text-anchor="middle" fill="#6b2d00" font-family="Arial, sans-serif" font-size="28" font-weight="700">Piezoelectric Accelerometer</text>
+  <text x="50%" y="320" text-anchor="middle" fill="#6b2d00" font-family="Arial, sans-serif" font-size="18">Wide bandwidth &bull; High dynamic range &bull; AC-coupled</text>
+  <text x="50%" y="350" text-anchor="middle" fill="#6b2d00" font-family="Arial, sans-serif" font-size="16">Placeholder artwork &mdash; replace with a real photo when available</text>
+</svg>

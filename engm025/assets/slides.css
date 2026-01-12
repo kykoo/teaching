@@ -1,0 +1,25 @@
+.reveal .slide-number {
+  position: fixed !important;
+  bottom: 20px !important;
+  top: auto !important;
+  left: auto !important;
+  right: 20px !important;
+}
+
+.reveal .footer {
+  position: fixed;
+  bottom: 20px;
+  right: 80px; /* leave room for slide number on the right */
+}
+
+/* Hide any header/logo if present */
+.reveal .slide-logo,
+.reveal header {
+  display: none !important;
+}
+
+/* Utility class for half-width images in slides */
+.reveal section img.half-img {
+  width: 50% !important;
+  height: auto !important;
+}

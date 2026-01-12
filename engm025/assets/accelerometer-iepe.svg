@@ -1,0 +1,16 @@
+<svg width="640" height="400" viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e6fff4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bff5df;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#grad3)" />
+  <rect x="150" y="110" width="340" height="180" rx="16" ry="16" fill="#1f7a55" opacity="0.18" />
+  <rect x="190" y="140" width="260" height="120" rx="10" ry="10" fill="#1f7a55" />
+  <rect x="440" y="175" width="70" height="50" rx="6" ry="6" fill="#ffffff" stroke="#1f7a55" stroke-width="4" />
+  <circle cx="475" cy="200" r="16" fill="#bff5df" stroke="#1f7a55" stroke-width="4" />
+  <text x="50%" y="60" text-anchor="middle" fill="#0f3c2e" font-family="Arial, sans-serif" font-size="28" font-weight="700">IEPE / ICP Accelerometer</text>
+  <text x="50%" y="320" text-anchor="middle" fill="#0f3c2e" font-family="Arial, sans-serif" font-size="18">Constant-current powered &bull; Robust field standard</text>
+  <text x="50%" y="350" text-anchor="middle" fill="#0f3c2e" font-family="Arial, sans-serif" font-size="16">Placeholder artwork &mdash; replace with a real photo when available</text>
+</svg>

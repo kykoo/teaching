@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="engm025-L03-sensors_files/libs/clipboard/clipboard.min.js"></script>
-<script src="engm025-L03-sensors_files/libs/quarto-html/tabby.min.js"></script>
-<script src="engm025-L03-sensors_files/libs/quarto-html/popper.min.js"></script>
-<script src="engm025-L03-sensors_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="engm025-L03-sensors_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="engm025-L03-sensors_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="engm025-L03-sensors_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="engm025-L03-sensors1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="engm025-L03-sensors1_files/libs/quarto-html/tabby.min.js"></script>
+<script src="engm025-L03-sensors1_files/libs/quarto-html/popper.min.js"></script>
+<script src="engm025-L03-sensors1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="engm025-L03-sensors1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="engm025-L03-sensors1_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="engm025-L03-sensors1_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Dr.&nbsp;Ki-Young Koo">
-  <title>Sensors</title>
+  <title>Sensors 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="engm025-L03-sensors_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="engm025-L03-sensors_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="engm025-L03-sensors1_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="engm025-L03-sensors1_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,12 +29,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="engm025-L03-sensors_files/libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
-  <link rel="stylesheet" href="assets/slides.css">
-  <link href="engm025-L03-sensors_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="engm025-L03-sensors_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="engm025-L03-sensors_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="engm025-L03-sensors_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="engm025-L03-sensors1_files/libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
+  <link href="engm025-L03-sensors1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="engm025-L03-sensors1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="engm025-L03-sensors1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="engm025-L03-sensors1_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -128,7 +127,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Sensors</h1>
+  <h1 class="title">Sensors 1</h1>
   <p class="subtitle">Smart Civil Structures: L03</p>
 
 <div class="quarto-title-authors">
@@ -150,9 +149,6 @@ Dr.&nbsp;Ki-Young Koo
 <li>Servo</li>
 <li>Capacitive MEMS (Micro-Electro Mechanical System)</li>
 </ul></li>
-<li>Strain Sensors</li>
-<li>Temperature Sensor</li>
-<li>Wind Sensors</li>
 </ul>
 </section>
 <section>
@@ -629,645 +625,30 @@ a_{nPE} = \sqrt{4 k_B T \left(\frac{0.01 \omega_0}{mQ} + \frac{\eta C_{PE}}{\ome
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+
 </section></section>
-<section>
-<section id="strain-sensors" class="title-slide slide level1 center">
-<h1>Strain Sensors</h1>
-
-</section>
-<section id="vibrating-wire-gauge" class="slide level2 smaller">
-<h2>Vibrating Wire Gauge</h2>
-
-<img data-src="sensors/vwg-working-principle.png" style="width:100.0%" class="r-stretch"><div class="fragment">
-<p><span class="math display">\[f = k \sqrt{\varepsilon} \quad k = \frac{L}{2}\sqrt{\frac{A E}{\rho}} \quad \Delta \varepsilon = k \left(f_{1}^{2} - f_{0}^{2}\right)\]</span></p>
-<!-- where $f$ = frequency, $k$ = a constant, $\varepsilon$=strain -->
-</div>
-<aside class="notes">
-<ul>
-<li>Both ends are fixed to a structure, where we want to measure strain between the two fixed points</li>
-<li>Inside the gauage, there is a steel wire magnetized, with an initial tension. The mounting system has to have a way to control the tension.</li>
-<li>There are coils above the middle of the steel wire. Thermistor (a temperature sensor) is using 2 wires for temperature compensation. The other two wires are connected to the coils.</li>
-<li>Then a current pulse is applied to the coil wires, inducing a magnetic field, and then vibration on the steel wire.</li>
-<li>After that steel wire vibrates freely, as the vibrating wire induces electro-magnetic field, in turn, inducing a current on the coil wires.</li>
-<li>The current on the coil wire is measured to capture the frequency of vibration of the wire.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="vibrating-wire-gauge-1" class="slide level2">
-<h2>Vibrating Wire Gauge</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="sensors/vwg.jpg" style="width:100.0%"></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="sensors/vwg-installed.jpg" style="width:100.0%"></p>
-</div></div>
-</section>
-<section id="electrical-resistance-strain-gauge" class="slide level2 smaller">
-<h2>Electrical Resistance Strain Gauge</h2>
-<div class="columns">
-<div class="column">
-<p><img data-src="sensors/er-strain-gauge.png"></p>
-</div><div class="column">
-<p><span class="math display">\[R = \dfrac{\rho L}{A}, \quad \frac{\Delta R}{R} = GF \cdot \varepsilon\]</span></p>
-<ul>
-<li>ρ (rho): the material’s electrical resistivity (Ω·m)</li>
-<li>L, A: Length and Area of the strain gauge</li>
-<li>R: nominal gauge resistance (e.g., 120 Ω, 350 Ω)</li>
-<li>ΔR: resistance change (very small)</li>
-<li>GF: gauge factor (typically ~2.0 for metal-foil gauges)</li>
-<li>ε: strain (dimensionless; 1000 µε = 0.001)</li>
-</ul>
-</div></div>
-</section>
-<section id="ers-how-to-measure-delta-r" class="slide level2 smaller">
-<h2>ERS: How to measure <span class="math inline">\(\Delta R\)</span></h2>
-<div class="columns">
-<div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sensors/wheatston-bridge.png"></p>
-<figcaption>Wheatstone Bridge</figcaption>
-</figure>
-</div>
-</div><div class="column">
-<ul>
-<li>Usually <span class="math inline">\(\Delta R\)</span> is ~0.1% or less even at high strain = 1,000 <span class="math inline">\(\mu \varepsilon\)</span></li>
-<li>Measuring it with an ohmmeter is impractical</li>
-<li>Wheatstone Bridge is ideal because it converts resistance change into differential voltage accross D and B</li>
-<li>Depending on configuration, 1, 2, or 4 ERS are used.</li>
-</ul>
-<p><span class="math display">\[\Delta V_{BD} = G (\Delta R_1 - \Delta R_2 + \Delta R_3  - \Delta R_4)\]</span></p>
-</div></div>
-</section>
-<section id="fibre-bragg-grating-strain-gauage" class="slide level2">
-<h2>Fibre Bragg Grating Strain gauage</h2>
-<p><img data-src="sensors/bragg-grating.png" style="display:block;margin:0 auto;;width:60.0%"> <img data-src="sensors/fbg-principle.png" style="display:block;margin:0 auto;;width:60.0%"></p>
-<aside class="notes">
-<p>How to produce Fibre Bragg Grating:</p>
-<ul>
-<li><p>A fiber Bragg grating is typically fabricated by exposing a photosensitive optical fiber (often germanium‑doped) to a spatially periodic UV interference pattern so the core’s refractive index is permanently modulated along a short length. The most common method uses a phase mask: a UV laser illuminates the mask, which creates an interference pattern that writes the grating into the fiber core beneath it. After exposure, the grating reflects a narrow band of wavelengths (the Bragg wavelength) determined by the grating period and effective index; the fiber may then be annealed or recoated to stabilize the inscription.</p></li>
-<li><p>The wavelength of reflected light is depending on the bragg grating period, which is reveals the strain at the point</p></li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="fbg-wavelength-division-multiplexing" class="slide level2">
-<h2>FBG Wavelength-Division Multiplexing</h2>
-
-<img data-src="sensors/fbg-multiplexing.png" class="r-stretch"><aside class="notes">
-<p>FBG wavelength‑division multiplexing sends broadband light through a coupler into a single fiber that contains multiple Bragg gratings, each tuned to a distinct wavelength (λ1, λ2, λ3, …). Every grating reflects only its own narrow band, so the returned spectrum shows separated peaks that correspond to each sensor along the fiber. A wavelength interrogator measures the peak shifts, converting them into strain or temperature at each grating location, allowing many sensing points on one fiber with minimal cabling.</p>
-<p>Because of the WD-multiplexing, practical number of FBGs can be limited depending on expected range of strains: if two peaks are narrowly spaced, they may meet and make it difficult to distinguish which peak is from which sensor.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="fbg-wavelength-division-multiplexing-1" class="slide level2">
-<h2>FBG Wavelength-Division Multiplexing</h2>
-<div class="columns">
-<div class="column">
-<div class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sensors/fbg-strain.jpg"></p>
-<figcaption>Strain</figcaption>
-</figure>
-</div>
-</div>
-<div class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sensors/fbg-extension.jpg"></p>
-<figcaption>Extensometer</figcaption>
-</figure>
-</div>
-</div>
-</div><div class="column">
-<div class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sensors/fbg-acc.jpg"></p>
-<figcaption>Accelerometer</figcaption>
-</figure>
-</div>
-</div>
-<div class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sensors/fbg-temp.jpg"></p>
-<figcaption>Temperature Sensor</figcaption>
-</figure>
-</div>
-</div>
-</div></div>
-<aside class="notes">
-<ul>
-<li>Cambridge has been using fibre optics a lot.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="fbg-interrogator" class="slide level2">
-<h2>FBG Interrogator</h2>
-
-<img data-src="sensors/fbg-interrogator2.webp" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">Micron Optics SM125</p><aside class="notes">
-<ul>
-<li>This is an industrial PC with a monitor port (VGA), and USB ports for keyboard and mouse, and even with a LAN port.</li>
-<li>The size of Interrogator has been reduced a lot in the last two decades.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="botda-principle" class="slide level2 smaller">
-<h2>BOTDA: Principle</h2>
-<p>Brillouin Optical Time Domain Analysis</p>
-
-<img data-src="sensors/BOTDA-principle.png" style="width:140.0%" class="r-stretch"><aside class="notes">
-<ul>
-<li>Uses <strong>stimulated Brillouin scattering</strong>: a pump pulse and a counter-propagating probe interact in the fiber; Brillouin gain spectrum (BGS) shifts with strain/temperature.</li>
-<li><strong>Brillouin frequency shift (BFS)</strong> is approximately linear with strain (≈ 0.05–0.06 MHz/με) and temperature (≈ 1 MHz/°C).</li>
-<li>Spatial resolution set by pump pulse width (e.g., 10 cm – 10 m typical); sensing range up to 10–50 km with repeaters/optimization.</li>
-<li>Measurement loop: launch pump pulse → sweep probe frequency → measure BGS → fit BFS → convert to strain/temperature (often temperature-compensated).</li>
-<li>Compared to BOTDR (Brillouin Optical Time‑Domain Reflectometry), BOTDA offers better SNR and resolution but requires access to both fiber ends.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="botda-product" class="slide level2 smaller">
-<h2>BOTDA Product</h2>
-
-<img data-src="sensors/BOTDA-product.png" style="width:100.0%" class="r-stretch"><aside class="notes">
-<ul>
-<li>They claim the technical advances in the spatial resolution, temperature resolution, and the maximum distance to measure (up to 20 km)</li>
-<li>Technology is advancing. 20 years ago, there was a BOTDR off-the-shelf system which I saw a demo run, but no BOTDA.</li>
-<li>Keep looking at the lastest techonology.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="summary-on-strain-sensors" class="slide level2 smaller">
-<h2>Summary on Strain Sensors</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 17%">
-<col style="width: 16%">
-<col style="width: 21%">
-<col style="width: 24%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>VWG</th>
-<th>ER</th>
-<th>FBG</th>
-<th>BOTDA</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Measurement type</td>
-<td>Point</td>
-<td>Point</td>
-<td>Point (multiplexed)</td>
-<td><strong>Distributed</strong></td>
-</tr>
-<tr class="even">
-<td>Gauge length</td>
-<td>Long (50–200 mm)</td>
-<td>Short (5–10 mm)</td>
-<td>Short–medium</td>
-<td>Continuous (meters–km)</td>
-</tr>
-<tr class="odd">
-<td>Spatial resolution</td>
-<td>Point</td>
-<td>Point</td>
-<td>Point</td>
-<td>0.1–1 m</td>
-</tr>
-<tr class="even">
-<td>Sampling rate</td>
-<td>Low</td>
-<td>High</td>
-<td>High</td>
-<td>Very low</td>
-</tr>
-<tr class="odd">
-<td>Dynamic strain</td>
-<td>No</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-<tr class="even">
-<td>Cost</td>
-<td>Lower</td>
-<td>Lowest</td>
-<td>High</td>
-<td>Extremely High</td>
-</tr>
-</tbody>
-</table>
-</section></section>
-<section>
-<section id="temperature-sensors" class="title-slide slide level1 center">
-<h1>Temperature Sensors</h1>
-<ul>
-<li>Thermistors</li>
-<li>Thermocouples</li>
-</ul>
-</section>
-<section id="thermistor-principle" class="slide level2 smaller">
-<h2>Thermistor: Principle</h2>
-<p>= Temperature-dependent Resistor</p>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sensors/thermistor.jpg"></p>
-<figcaption>Thermistors Available</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:60%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sensors/NTC-vs-PTC-Thermistors-graph.webp"></p>
-<figcaption>NTC vs PTC</figcaption>
-</figure>
-</div>
-</div></div>
-</section>
-<section id="thermistor" class="slide level2 smaller">
-<h2>Thermistor</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sensors/thermistor.jpg"></p>
-<figcaption>Thermistors Available</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:60%;">
-<ul>
-<li>Semiconductor resistor with strong temperature coefficient (often NTC).</li>
-<li>High sensitivity in a narrow range (e.g., −40 to 150 °C); great for precision around ambient.</li>
-<li>Requires linearization and self-heating must be minimized (use low excitation).</li>
-<li>Alternative for higher accuracy/stability: RTD, Resistance Temperature Detector, made from Platinum (Pt100/Pt1000) with 4-wire measurement.</li>
-</ul>
-</div></div>
-</section>
-<section id="thermistor-products" class="slide level2">
-<h2>Thermistor: Products</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sensors/campbell-thermistors.jpeg"></p>
-<figcaption>Campbell 107 Temperature Probe</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sensors/campbell_cr200.webp"></p>
-<figcaption>Campbell CR200 Logger</figcaption>
-</figure>
-</div>
-</div></div>
-</section>
-<section id="thermocouple-principle" class="slide level2 smaller">
-<h2>Thermocouple: Principle</h2>
-<p>Using Seebeck<sup>1</sup> Effect</p>
-<p><img data-src="sensors/thermocouple-principle.png" style="width:70.0%"></p>
-<!-- - Extremely wide range (cryogenic to >1200 °C), very fast response, rugged and inexpensive. 
-- Accuracy limited (often ±1–2 °C) and wires must be matched types. 
-- Needs cold-junction compensation, commonly using a thermistor. -->
-<aside class="notes">
-<p>The Seebeck effect is the generation of a voltage when two dissimilar conductors form a circuit with a temperature difference between their junctions. Charge carriers diffuse from the hot side to the cold side, creating an electric potential that is proportional to the temperature gradient and the materials’ Seebeck coefficients. This is the physical basis of thermocouples, where the measured voltage is used to infer temperature without external power.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<aside><ol class="aside-footnotes"><li id="fn5"><p>Thomas Johann Seebeck, a German physicist, discovered this effect in 1821.</p></li></ol></aside></section>
-<section id="thermocouple-type" class="slide level2 smaller">
-<h2>Thermocouple: Type</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 28%">
-<col style="width: 14%">
-<col style="width: 42%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Type</th>
-<th>Typical range (°C)</th>
-<th>Sensitivity (μV/°C)</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>K</td>
-<td>−200 to 1260</td>
-<td>~41</td>
-<td>Nickel–Chromel/Alumel; general purpose</td>
-</tr>
-<tr class="even">
-<td>J</td>
-<td>−40 to 750</td>
-<td>~55</td>
-<td>Iron/Constantan; not for high temp oxidation</td>
-</tr>
-<tr class="odd">
-<td>T</td>
-<td>−200 to 350</td>
-<td>~43</td>
-<td>Copper/Constantan; good for cryogenic/low temp</td>
-</tr>
-<tr class="even">
-<td>E</td>
-<td>−200 to 900</td>
-<td>~68</td>
-<td>Chromel/Constantan; highest output of common types</td>
-</tr>
-<tr class="odd">
-<td>N</td>
-<td>−200 to 1260</td>
-<td>~39</td>
-<td>Nicrosil/Nisil; better stability than K</td>
-</tr>
-<tr class="even">
-<td>R/S</td>
-<td>0 to 1600</td>
-<td>~10</td>
-<td>Platinum/Rhodium; high-temp, costly</td>
-</tr>
-<tr class="odd">
-<td>B</td>
-<td>600 to 1700</td>
-<td>~6</td>
-<td>Platinum/Rhodium; best for very high temp</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<ul>
-<li>K-type is the most common for SHM.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="thermocouple-products" class="slide level2 smaller">
-<h2>Thermocouple: Products</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="sensors/thermocouple-k.jpg"></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="sensors/thermocouple-hh-520.jpg"></p>
-</div></div>
-<aside class="notes">
-<ul>
-<li>Some products you can find in Amazon, or eBay.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="wind-sensor" class="title-slide slide level1 center">
-<h1>Wind Sensor</h1>
-<ul>
-<li>Mechanical Anemomter</li>
-<li>Ultrasonic Anemometer</li>
-</ul>
-</section>
-<section id="mechanical-vane-or-cup" class="slide level2">
-<h2>Mechanical: Vane or Cup</h2>
-<div class="columns">
-<div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sensors/wind-vane.webp"></p>
-<figcaption>RM Young 05106</figcaption>
-</figure>
-</div>
-</div><div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sensors/wind-cup-arrow.png"></p>
-<figcaption>Weather Station PSG04173</figcaption>
-</figure>
-</div>
-</div></div>
-</section>
-<section id="ultrasonic" class="slide level2">
-<h2>Ultrasonic</h2>
-<div class="columns">
-<div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sensors/wind-ultrasonic.jpg" style="width:60.0%"></p>
-<figcaption>RM Young 86004: 2D</figcaption>
-</figure>
-</div>
-</div><div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sensors/wind-ultrasonic-3d.jpg" style="width:60.0%"></p>
-<figcaption>RM Young 81000: 3D</figcaption>
-</figure>
-</div>
-</div></div>
-<aside class="notes">
-<p>Two different experiences from Prof.&nbsp;James Brownjohn and myself</p>
-<ul>
-<li><p>Prof.&nbsp;Brownjohn used an ultrasonic one in the past, and found the measurements were rubbish. Hence, he inclined to use mechanical ones.</p></li>
-<li><p>A mechnical Anemometer was used in Humber Bridge, but on a heavy wind day, it was blown up.</p></li>
-<li><p>My experiences on ultrasonic anemoeter seems to be OK so far, without any faulty measurements.</p></li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="anemometer-summary" class="slide level2 smaller">
-<h2>Anemometer Summary</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Aspect</th>
-<th>Mechanical</th>
-<th>Ultrasonic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Accuracy</td>
-<td>Moderate (±1–3%)</td>
-<td>High (±1% or better)</td>
-</tr>
-<tr class="even">
-<td>Resolution</td>
-<td>Limited by inertia</td>
-<td>Very high</td>
-</tr>
-<tr class="odd">
-<td>Low-speed sensitivity</td>
-<td>Poor</td>
-<td>Excellent</td>
-</tr>
-<tr class="even">
-<td>Gust response</td>
-<td>Slow</td>
-<td>Very fast (up to 10 Hz)</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<ul>
-<li>James’ brownjohn’s experience</li>
-<li>My experience</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section id="summary" class="title-slide slide level1 center">
-<h1>Summary</h1>
-<ul>
-<li class="fragment">Choosing the right sensor is critical for SHM.</li>
-<li class="fragment">To choose well, you need a clear grasp of working principle and performance of each sensor.</li>
-<li class="fragment">A choise is made to balance performance, cost, and quantity when deciding sensor type, manufacturer-model, quantities, and locations.</li>
-<li class="fragment">There may be a chance to look at VES sensors in the future</li>
-</ul>
-
-</section>
-
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Smart Civil Structures</p>
+
 </div>
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="engm025-L03-sensors_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="engm025-L03-sensors1_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="engm025-L03-sensors_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="engm025-L03-sensors_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="engm025-L03-sensors_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="engm025-L03-sensors_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="engm025-L03-sensors_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="engm025-L03-sensors1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="engm025-L03-sensors1_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="engm025-L03-sensors1_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="engm025-L03-sensors1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="engm025-L03-sensors1_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="engm025-L03-sensors_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="engm025-L03-sensors_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="engm025-L03-sensors_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="engm025-L03-sensors_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="engm025-L03-sensors1_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="engm025-L03-sensors1_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="engm025-L03-sensors1_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="engm025-L03-sensors1_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1276,7 +657,7 @@ a_{nPE} = \sqrt{4 k_B T \left(\frac{0.01 \omega_0}{mQ} + \frac{\eta C_{PE}}{\ome
       // https://revealjs.com/config/
       Reveal.initialize({
 'controlsAuto': true,
-'previewLinksAuto': true,
+'previewLinksAuto': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,

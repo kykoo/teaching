@@ -8,7 +8,7 @@
 
 <meta name="author" content="Dr.&nbsp;Ki-Young Koo">
 
-<title>Sensors 2: Displacement Measurements</title>
+<title>Sensors 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,21 +24,48 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="engm025-L04-sensors2__files/libs/clipboard/clipboard.min.js"></script>
-<script src="engm025-L04-sensors2__files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="engm025-L04-sensors2__files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="engm025-L04-sensors2__files/libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="engm025-L04-sensors2__files/libs/quarto-html/popper.min.js"></script>
-<script src="engm025-L04-sensors2__files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="engm025-L04-sensors2__files/libs/quarto-html/anchor.min.js"></script>
-<link href="engm025-L04-sensors2__files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="engm025-L04-sensors2__files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="engm025-L04-sensors2__files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="engm025-L04-sensors2__files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="engm025-L04-sensors2__files/libs/bootstrap/bootstrap-9b2b39172b51de906ea9faad4e4656e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="engm025-L04-sensors2__files/libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="engm025-L04-sensors2__files/libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
+<script src="engm025-L04-sensors2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="engm025-L04-sensors2_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="engm025-L04-sensors2_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="engm025-L04-sensors2_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="engm025-L04-sensors2_files/libs/quarto-html/popper.min.js"></script>
+<script src="engm025-L04-sensors2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="engm025-L04-sensors2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="engm025-L04-sensors2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="engm025-L04-sensors2_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="engm025-L04-sensors2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="engm025-L04-sensors2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="engm025-L04-sensors2_files/libs/bootstrap/bootstrap-9b2b39172b51de906ea9faad4e4656e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -51,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Sensors 2: Displacement Measurements</h1>
+<h1 class="title">Sensors 2</h1>
 <p class="subtitle lead">Smart Civil Structures: L04</p>
 </div>
 
@@ -84,750 +111,582 @@ ul.task-list li input[type="checkbox"] {
 <section id="table-of-contents" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
 <ul>
-<li>GNSS-RTK</li>
-<li>CV (Computer-Vision)</li>
-<li>LVDT</li>
-<li>Potentiometer</li>
-<li>Laser</li>
+<li>Strain Sensors
+<ul>
+<li>Vibration Wire Gauge</li>
+<li>Electric Resistance Gauge</li>
+<li>Fibre Bragg Grating</li>
+<li>BOTDA</li>
+</ul></li>
+<li>Temperature Sensor</li>
+<li>Wind Sensors</li>
 </ul>
 </section>
-<section id="overview" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="overview">Overview</h2>
+<section id="your-choice-of-an-accelerometer" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="your-choice-of-an-accelerometer">Your choice of An Accelerometer</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 39%">
-<col style="width: 8%">
-<col style="width: 52%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Type</th>
-<th>Measure-Type</th>
-<th>Typical Accuracy</th>
+<th>Parameters</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>GNSS-RTK</td>
-<td>Absolute</td>
-<td><strong>±2–5 cm (horizontal)</strong>, <strong>±5–10 cm (vertical)</strong></td>
+<td>frequency limit</td>
+<td>up to 100 Hz or more?</td>
 </tr>
 <tr class="even">
-<td>RTS (Robotic Total Station)</td>
-<td>Relative</td>
-<td><strong>±0.5–1.0 mm</strong> (depends on distance &amp; optics)</td>
+<td>acceleration range</td>
+<td>± 1g, ±2g or more</td>
 </tr>
 <tr class="odd">
-<td>Computer Vision</td>
-<td>Relative</td>
-<td><strong>±0.1–1.0 mm</strong> (depends on distance &amp; optics)</td>
+<td>noise floor</td>
+<td>g/sq(Hz)</td>
 </tr>
 <tr class="even">
-<td>Laser</td>
-<td>Relative</td>
-<td><strong>±0.1–1.0 mm</strong></td>
+<td>Output</td>
+<td>Analog/Digital?</td>
 </tr>
 <tr class="odd">
-<td>LVDT</td>
-<td>Relative</td>
-<td><strong>±0.1–1.0 mm</strong></td>
+<td>sensitivity</td>
+<td>V/g or mA/g</td>
 </tr>
 <tr class="even">
-<td>Potentiometer</td>
-<td>Relative</td>
-<td><strong>±0.1–3.0 mm</strong> (depends on measurement range)</td>
+<td>size/weight</td>
+<td>is important?</td>
+</tr>
+<tr class="odd">
+<td>no of axes</td>
+<td>single or triaxial</td>
+</tr>
+<tr class="even">
+<td>cost</td>
+<td>$k usually; get the best</td>
+</tr>
+<tr class="odd">
+<td>lead time</td>
+<td>can kill a project</td>
 </tr>
 </tbody>
 </table>
-<!-- | Reconstructed (from inertial sensors) | Indirect | **±1–10 mm** (model- and noise-dependent)         | -->
+<div class="notes">
+<ul>
+<li>Frequency limit is decided by your structure and your decision on what maximum frequency to use. Our civil structures are in lower frequency</li>
+<li>Acc range: depending on the actual range of acceleration of the structure. Usually our structures have a lower vibration amplitude.</li>
+<li>Cost: no smart signal processing recuses data from poor performance accelerometers.</li>
+</ul>
+</div>
 </section>
-<section id="gnss-rtk" class="level1">
-<h1>GNSS-RTK</h1>
-<section id="global-navigation-satellite-system" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="global-navigation-satellite-system">Global Navigation Satellite System</h2>
-<p><strong>GNSS</strong> is a satellite-based system that provides Position, Velocity, and Precise time.</p>
-<div style="font-size:0.8em;">
+<section id="strain-sensors" class="level1">
+<h1>Strain Sensors</h1>
+<section id="vibrating-wire-gauge" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="vibrating-wire-gauge">Vibrating Wire Gauge</h2>
+<p><img src="sensors/vwg-working-principle.png" class="img-fluid" style="width:100.0%"></p>
+<div class="fragment">
+<p><span class="math display">\[f = k \sqrt{\varepsilon} \quad k = \frac{L}{2}\sqrt{\frac{A E}{\rho}} \quad \Delta \varepsilon = k \left(f_{1}^{2} - f_{0}^{2}\right)\]</span></p>
+<!-- where $f$ = frequency, $k$ = a constant, $\varepsilon$=strain -->
+</div>
+<div class="notes">
+<ul>
+<li>Both ends are fixed to a structure, where we want to measure strain between the two fixed points</li>
+<li>Inside the gauage, there is a steel wire magnetized, with an initial tension. The mounting system has to have a way to control the tension.</li>
+<li>There are coils above the middle of the steel wire. Thermistor (a temperature sensor) is using 2 wires for temperature compensation. The other two wires are connected to the coils.</li>
+<li>Then a current pulse is applied to the coil wires, inducing a magnetic field, and then vibration on the steel wire.</li>
+<li>After that steel wire vibrates freely, as the vibrating wire induces electro-magnetic field, in turn, inducing a current on the coil wires.</li>
+<li>The current on the coil wire is measured to capture the frequency of vibration of the wire.</li>
+</ul>
+</div>
+</section>
+<section id="vibrating-wire-gauge-1" class="level2">
+<h2 class="anchored" data-anchor-id="vibrating-wire-gauge-1">Vibrating Wire Gauge</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="sensors/vwg.jpg" class="img-fluid" style="width:100.0%"></p>
+</div><div class="column" style="width:50%;">
+<p><img src="sensors/vwg-installed.jpg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="electrical-resistance-strain-gauge" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="electrical-resistance-strain-gauge">Electrical Resistance Strain Gauge</h2>
+<div class="columns">
+<div class="column">
+<p><img src="sensors/er-strain-gauge.png" class="img-fluid"></p>
+</div><div class="column">
+<p><span class="math display">\[R = \dfrac{\rho L}{A}, \quad \frac{\Delta R}{R} = GF \cdot \varepsilon\]</span></p>
+<ul>
+<li>ρ (rho): the material’s electrical resistivity (Ω·m)</li>
+<li>L, A: Length and Area of the strain gauge</li>
+<li>R: nominal gauge resistance (e.g., 120 Ω, 350 Ω)</li>
+<li>ΔR: resistance change (very small)</li>
+<li>GF: gauge factor (typically ~2.0 for metal-foil gauges)</li>
+<li>ε: strain (dimensionless; 1000 µε = 0.001)</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="ers-how-to-measure-delta-r" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="ers-how-to-measure-delta-r">ERS: How to measure <span class="math inline">\(\Delta R\)</span></h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sensors/wheatston-bridge.png" class="img-fluid figure-img"></p>
+<figcaption>Wheatstone Bridge</figcaption>
+</figure>
+</div>
+</div><div class="column">
+<ul>
+<li>Usually <span class="math inline">\(\Delta R\)</span> is ~0.1% or less even at high strain = 1,000 <span class="math inline">\(\mu \varepsilon\)</span></li>
+<li>Measuring it with an ohmmeter is impractical</li>
+<li>Wheatstone Bridge is ideal because it converts resistance change into differential voltage accross D and B</li>
+<li>Depending on configuration, 1, 2, or 4 ERS are used.</li>
+</ul>
+<p><span class="math display">\[\Delta V_{BD} = G (\Delta R_1 - \Delta R_2 + \Delta R_3  - \Delta R_4)\]</span></p>
+</div>
+</div>
+</section>
+<section id="fibre-bragg-grating-strain-gauage" class="level2">
+<h2 class="anchored" data-anchor-id="fibre-bragg-grating-strain-gauage">Fibre Bragg Grating Strain gauage</h2>
+<p><img src="sensors/bragg-grating.png" class="img-fluid" style="display:block;margin:0 auto;;width:60.0%"> <img src="sensors/fbg-principle.png" class="img-fluid" style="display:block;margin:0 auto;;width:60.0%"></p>
+<div class="notes">
+<p>How to produce Fibre Bragg Grating:</p>
+<ul>
+<li><p>A fiber Bragg grating is typically fabricated by exposing a photosensitive optical fiber (often germanium‑doped) to a spatially periodic UV interference pattern so the core’s refractive index is permanently modulated along a short length. The most common method uses a phase mask: a UV laser illuminates the mask, which creates an interference pattern that writes the grating into the fiber core beneath it. After exposure, the grating reflects a narrow band of wavelengths (the Bragg wavelength) determined by the grating period and effective index; the fiber may then be annealed or recoated to stabilize the inscription.</p></li>
+<li><p>The wavelength of reflected light is depending on the bragg grating period, which is reveals the strain at the point</p></li>
+</ul>
+</div>
+</section>
+<section id="fbg-wavelength-division-multiplexing" class="level2">
+<h2 class="anchored" data-anchor-id="fbg-wavelength-division-multiplexing">FBG Wavelength-Division Multiplexing</h2>
+<p><img src="sensors/fbg-multiplexing.png" class="img-fluid"></p>
+<div class="notes">
+<p>FBG wavelength‑division multiplexing sends broadband light through a coupler into a single fiber that contains multiple Bragg gratings, each tuned to a distinct wavelength (λ1, λ2, λ3, …). Every grating reflects only its own narrow band, so the returned spectrum shows separated peaks that correspond to each sensor along the fiber. A wavelength interrogator measures the peak shifts, converting them into strain or temperature at each grating location, allowing many sensing points on one fiber with minimal cabling.</p>
+<p>Because of the WD-multiplexing, practical number of FBGs can be limited depending on expected range of strains: if two peaks are narrowly spaced, they may meet and make it difficult to distinguish which peak is from which sensor.</p>
+</div>
+</section>
+<section id="fbg-wavelength-division-multiplexing-1" class="level2">
+<h2 class="anchored" data-anchor-id="fbg-wavelength-division-multiplexing-1">FBG Wavelength-Division Multiplexing</h2>
+<div class="columns">
+<div class="column">
+<div class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sensors/fbg-strain.jpg" class="img-fluid figure-img"></p>
+<figcaption>Strain</figcaption>
+</figure>
+</div>
+</div>
+<div class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sensors/fbg-extension.jpg" class="img-fluid figure-img"></p>
+<figcaption>Extensometer</figcaption>
+</figure>
+</div>
+</div>
+</div><div class="column">
+<div class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sensors/fbg-acc.jpg" class="img-fluid figure-img"></p>
+<figcaption>Accelerometer</figcaption>
+</figure>
+</div>
+</div>
+<div class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sensors/fbg-temp.jpg" class="img-fluid figure-img"></p>
+<figcaption>Temperature Sensor</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="notes">
+<ul>
+<li>Cambridge has been using fibre optics a lot.</li>
+</ul>
+</div>
+</section>
+<section id="fbg-interrogator" class="level2">
+<h2 class="anchored" data-anchor-id="fbg-interrogator">FBG Interrogator</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sensors/fbg-interrogator2.webp" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Micron Optics SM125</figcaption>
+</figure>
+</div>
+<div class="notes">
+<ul>
+<li>This is an industrial PC with a monitor port (VGA), and USB ports for keyboard and mouse, and even with a LAN port.</li>
+<li>The size of Interrogator has been reduced a lot in the last two decades.</li>
+</ul>
+</div>
+</section>
+<section id="botda-principle" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="botda-principle">BOTDA: Principle</h2>
+<p>Brillouin Optical Time Domain Analysis</p>
+<p><img src="sensors/BOTDA-principle.png" class="img-fluid" style="width:140.0%"></p>
+<div class="notes">
+<ul>
+<li>Uses <strong>stimulated Brillouin scattering</strong>: a pump pulse and a counter-propagating probe interact in the fiber; Brillouin gain spectrum (BGS) shifts with strain/temperature.</li>
+<li><strong>Brillouin frequency shift (BFS)</strong> is approximately linear with strain (≈ 0.05–0.06 MHz/με) and temperature (≈ 1 MHz/°C).</li>
+<li>Spatial resolution set by pump pulse width (e.g., 10 cm – 10 m typical); sensing range up to 10–50 km with repeaters/optimization.</li>
+<li>Measurement loop: launch pump pulse → sweep probe frequency → measure BGS → fit BFS → convert to strain/temperature (often temperature-compensated).</li>
+<li>Compared to BOTDR (Brillouin Optical Time‑Domain Reflectometry), BOTDA offers better SNR and resolution but requires access to both fiber ends.</li>
+</ul>
+</div>
+</section>
+<section id="botda-product" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="botda-product">BOTDA Product</h2>
+<p><img src="sensors/BOTDA-product.png" class="img-fluid" style="width:100.0%"></p>
+<div class="notes">
+<ul>
+<li>They claim the technical advances in the spatial resolution, temperature resolution, and the maximum distance to measure (up to 20 km)</li>
+<li>Technology is advancing. 20 years ago, there was a BOTDR off-the-shelf system which I saw a demo run, but no BOTDA.</li>
+<li>Keep looking at the lastest techonology.</li>
+</ul>
+</div>
+</section>
+<section id="summary-on-strain-sensors" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="summary-on-strain-sensors">Summary on Strain Sensors</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 19%">
+<col style="width: 20%">
 <col style="width: 17%">
-<col style="width: 51%">
+<col style="width: 16%">
+<col style="width: 21%">
+<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>GNSS</th>
-<th>Operating Authority</th>
-<th style="text-align: right;">Nominal Satellites</th>
-<th>Notes</th>
+<th>Feature</th>
+<th>VWG</th>
+<th>ER</th>
+<th>FBG</th>
+<th>BOTDA</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>GPS</strong></td>
-<td>USA (US Space Force)</td>
-<td style="text-align: right;">24 (≈31 active)</td>
-<td>Most widely used; strong legacy support</td>
+<td>Measurement type</td>
+<td>Point</td>
+<td>Point</td>
+<td>Point (multiplexed)</td>
+<td><strong>Distributed</strong></td>
 </tr>
 <tr class="even">
-<td><strong>Galileo</strong></td>
-<td>EU (ESA/EUSPA)</td>
-<td style="text-align: right;">24 (≈28 active)</td>
-<td>High civilian accuracy; excellent clocks</td>
+<td>Gauge length</td>
+<td>Long (50–200 mm)</td>
+<td>Short (5–10 mm)</td>
+<td>Short–medium</td>
+<td>Continuous (meters–km)</td>
 </tr>
 <tr class="odd">
-<td><strong>GLONASS</strong></td>
-<td>Russia</td>
-<td style="text-align: right;">24 (≈24 active)</td>
-<td>Better coverage at high latitudes</td>
+<td>Spatial resolution</td>
+<td>Point</td>
+<td>Point</td>
+<td>Point</td>
+<td>0.1–1 m</td>
 </tr>
 <tr class="even">
-<td><strong>BeiDou</strong></td>
-<td>China</td>
-<td style="text-align: right;">30+</td>
-<td>Hybrid constellation; strong Asia-Pacific performance</td>
+<td>Sampling rate</td>
+<td>Low</td>
+<td>High</td>
+<td>High</td>
+<td>Very low</td>
+</tr>
+<tr class="odd">
+<td>Dynamic strain</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Cost</td>
+<td>Lower</td>
+<td>Lowest</td>
+<td>High</td>
+<td>Extremely High</td>
 </tr>
 </tbody>
 </table>
-</div>
 </section>
-<section id="how-does-gnss-determine-position" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="how-does-gnss-determine-position">How does GNSS determine position?</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>GNSS measures <strong>signal travel time</strong> from satellites:</p>
-<ol type="1">
-<li>Satellite sends a time-stamped signal</li>
-<li>Receiver measures the delay</li>
-<li><strong>Distance</strong> = (speed of light) × (time delay)</li>
-<li>Receiver position found by <strong>trilateration</strong></li>
-</ol>
-</div><div class="column" style="width:50%;">
-<p><img src="sensors2/gnss-intro1.png" class="img-fluid quarto-figure quarto-figure-center"> Three satellites enough?</p>
-</div>
-</div>
 </section>
-<section id="number-of-satellites-required" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="number-of-satellites-required">Number of Satellites Required</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img src="sensors2/slide_01_img_01.gif" class="img-fluid"></p>
-</div><div class="column" style="width:50%;">
+<section id="temperature-sensors" class="level1">
+<h1>Temperature Sensors</h1>
 <ul>
-<li><strong>4 satellites</strong>
-<ul>
-<li>3 for position (Easting, Northing, Height)</li>
-<li>1 to time-difference between Satellites and the GNSS receiver</li>
-</ul></li>
+<li>Thermistors</li>
+<li>Thermocouples</li>
 </ul>
-</div>
-</div>
-</section>
-<section id="accuracy-what-affects-it" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="accuracy-what-affects-it">Accuracy: what affects it?</h2>
-<p>Main factors that degrade accuracy:</p>
-<ul>
-<li>Satellite geometry (<strong>DOP</strong>)</li>
-<li>Atmosphere (ionosphere, troposphere)</li>
-<li><strong>Multipath</strong> reflections (buildings, bridges), Signal Blockage</li>
-<li>Receiver + antenna quality</li>
-</ul>
-<p>Typical accuracy (rough guide):</p>
-<ul>
-<li>Smartphone: <strong>1–5 m</strong></li>
-<li>Survey GNSS (RTK): <strong>a few cm</strong></li>
-</ul>
-</section>
-<section id="satellite-geometry" class="level2">
-<h2 class="anchored" data-anchor-id="satellite-geometry">Satellite Geometry</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img src="sensors2/slide_04_img_01.png" class="img-fluid"></p>
-</div><div class="column" style="width:50%;">
-<p><img src="sensors2/slide_04_img_02.png" class="img-fluid"></p>
-</div>
-</div>
-</section>
-<section id="multipath-and-signal-blockage" class="level2">
-<h2 class="anchored" data-anchor-id="multipath-and-signal-blockage">Multipath and Signal Blockage</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img src="sensors2/slide_03_img_02.png" class="img-fluid"></p>
-</div><div class="column" style="width:50%;">
-<p><img src="sensors2/slide_03_img_01.png" class="img-fluid"></p>
-</div>
-</div>
-</section>
-<section id="sources-of-errors" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="sources-of-errors">Sources of Errors</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Contributing Source</th>
-<th style="text-align: right;">Error Range</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Satellite Clocks</td>
-<td style="text-align: right;">±2 m</td>
-</tr>
-<tr class="even">
-<td>Orbit Errors</td>
-<td style="text-align: right;">±2.5 m</td>
-</tr>
-<tr class="odd">
-<td>Ionospheric Delays</td>
-<td style="text-align: right;">±5 m</td>
-</tr>
-<tr class="even">
-<td>Tropospheric Delays</td>
-<td style="text-align: right;">±0.5 m</td>
-</tr>
-<tr class="odd">
-<td>Receiver Noise</td>
-<td style="text-align: right;">±0.3 m</td>
-</tr>
-<tr class="even">
-<td>Multipath</td>
-<td style="text-align: right;">±1 m</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Much errors (Ionospheric Delays, Troposheric Delays) are common to the receivers on the ground if they are close each other.</li>
-<li>Then this may be corrected?!</li>
-</ul>
-</section>
-<section id="real-time-kinematic" class="level2">
-<h2 class="anchored" data-anchor-id="real-time-kinematic">Real-Time Kinematic</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_05_img_01.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<p>GPS accuracy is about 10m due to various errors, which are common to receivers ‘close’ to each other. We can determine position errors on one receiver (‘base station’) with known position and transmit these ‘corrections’ to ‘rover’ receivers and reduce to order of 1cm for ‘correct’ position</p>
-<p>GPS ‘accuracy’: - Quoted: 1 cm ± 1 ppm - Measured: 15 mm horizontally, 35 mm vertically for 98.5% confidence ±3σ (σ = 5 mm / 12 mm).</p>
-<p>BUT the error (noise) is not ‘random’!</p>
-</section>
-<section id="humber-bridge-shm" class="level2">
-<h2 class="anchored" data-anchor-id="humber-bridge-shm">Humber Bridge SHM</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="humber_bridge/humber_bridge_map.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="300"></p>
-</figure>
-</div>
-</section>
-<section id="humber-bridge-shm-1" class="level2">
-<h2 class="anchored" data-anchor-id="humber-bridge-shm-1">Humber Bridge SHM</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><img src="sensors2/slide_06_img_04.jpg" class="img-fluid quarto-figure quarto-figure-center"> <img src="sensors2/slide_06_img_03.jpg" class="img-fluid quarto-figure quarto-figure-center"></p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_06_img_02.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="computer-vision" class="level1">
-<h1>Computer-Vision</h1>
-<section id="cv-based-displacement-measurement" class="level2">
-<h2 class="anchored" data-anchor-id="cv-based-displacement-measurement">CV-based Displacement Measurement</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/cv-disp-working-principle.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="humber-bridge-tracking" class="level2">
-<h2 class="anchored" data-anchor-id="humber-bridge-tracking">Humber Bridge Tracking</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_08_img_01.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_08_img_02.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_08_img_03.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_08_img_04.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="two-hgvs-converge" class="level2">
-<h2 class="anchored" data-anchor-id="two-hgvs-converge">Two HGVs converge</h2>
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="sensors2/imetrum_humber.mp4"></video></div>
-</section>
-<section id="limitations-of-vision-based-system" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="limitations-of-vision-based-system">Limitations of vision-based system</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_10_img_01.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<ul>
-<li>Blocking line of sight.</li>
-<li>Can also be caused by poor weather.</li>
-<li>Camera stability (without fixed reference) is crucial.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_10_img_02.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<ul>
-<li>Shadows on image in low sun.</li>
-<li>Also deteriorating lighting conditions slows frame rate.</li>
-<li>Ultimately DMS cannot work at night unless illuminated.</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="application-to-moel-y-parc-hgm" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="application-to-moel-y-parc-hgm">Application to Moel-Y-Parc HGM</h2>
-<div class="columns">
-<div class="column" style="width:70%;">
-<ul>
-<li><p>Located on a hill in northeast Wales,</p></li>
-<li><p>Constructed in 1963</p></li>
-<li><p>cable stayed structure around 240m total height</p></li>
-<li><p>Monitored cables are the shortest two cables among one array indicated in the figure i.e.&nbsp;C1 and C2.</p></li>
-<li><p>Hardware: GoPro Hero 4 camera on a tripod</p></li>
-<li><p>Video processing algorithm: edge detection</p></li>
-</ul>
-</div><div class="column" style="width:30%;">
-<p><img src="sensors2/slide_11_img_01.jpg" class="img-fluid quarto-figure quarto-figure-center"> <!-- ![](sensors2/slide_11_img_02.jpg){fig-align="center"} --></p>
-</div>
-</div>
-</section>
-<section id="myp-cv-result" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="myp-cv-result">MyP CV Result</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<ul>
-<li><p>Fundamental frequencies</p>
-<ul>
-<li>C1: 0.680 Hz; C2: 0.475 Hz.</li>
-</ul></li>
-<li><p>Low-frequency drift observed,</p></li>
-<li><p>Possibly influence of lighting changes or camera shake</p></li>
-<li><p>Non-contact monitoring, more convenient than accelerometers</p></li>
-<li><p>Use better cameras and lenses</p></li>
-</ul>
-</div><div class="column" style="width:30%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_12_img_01.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</div><div class="column" style="width:30%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_12_img_02.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="myp-cv-result-1" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="myp-cv-result-1">MyP CV Result</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>This is a longer cable ‘galloping’.</li>
-<li>It’s vibrating in its second mode.</li>
-<li>Cable vibrations drive the mast</li>
-<li>Response are detected in acceleration data.</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_13_img_02.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_13_img_01.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="lvdt" class="level1">
-<h1>LVDT</h1>
-<section id="lvdt-1" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="lvdt-1">LVDT</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/LVDT-Inductive-device-1.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<p>An LVDT is an electromechanical transducer used to measure linear displacement by converting mechanical motion into an electrical signal. Its operation relies on electromagnetic induction and requires an external excitation source.</p>
-<p>The primary coil, located at the centre of the sensor, is supplied with an alternating current (AC) excitation voltage, typically in the range of 1–10 kHz. This excitation generates an alternating magnetic field along the axis of the LVDT. Because the sensor does not generate electrical energy by itself, the LVDT is classified as a passive transducer. The stability of the excitation signal is important, as it directly affects measurement accuracy.</p>
-<p>On either side of the primary coil are two identical secondary coils, commonly referred to as S1 and S2. These coils are symmetrically arranged and connected electrically in series opposition. When exposed to the magnetic field produced by the primary coil, voltages are induced in the secondary coils through electromagnetic induction. The output of the LVDT is defined as the difference between the voltages induced in S1 and S2. This differential configuration ensures that the output voltage is zero when the core is in the central (null) position and that the sign of the output voltage indicates the direction of displacement.</p>
-<p>The movable ferromagnetic core is positioned concentrically within the coils and is mechanically connected to the object whose displacement is being measured. The core is typically made of soft iron or another high-permeability material and is free to slide axially within the sensor. Its movement alters the distribution of magnetic flux linking the primary and secondary coils, thereby changing the mutual inductance between them. Since the core is not electrically connected to the coils, there is no physical contact or friction, resulting in negligible mechanical wear and excellent long-term repeatability.</p>
-<p>The coils are enclosed within a protective housing, which ensures precise alignment and symmetry of the winding arrangement. This structural symmetry is essential for maintaining linearity of the sensor output. The housing also protects the sensor from environmental influences such as dust, moisture, and temperature variations, contributing to the robustness and reliability of LVDTs in field applications.</p>
-<p>The output signal of an LVDT is an AC voltage whose amplitude is proportional to the magnitude of displacement from the null position, while its phase relative to the excitation signal indicates the direction of motion. At the null position, equal voltages are induced in both secondary coils, resulting in a net output of zero volts. Within the linear operating range, the output voltage varies linearly with displacement.</p>
-<p>In practical applications, the raw AC output from the secondary coils is processed by signal conditioning electronics, which typically include a differential amplifier, a phase-sensitive demodulator, and a low-pass filter. These electronics convert the AC signal into a signed DC voltage that is directly proportional to displacement. This conditioned output is suitable for data acquisition systems, controllers, and structural monitoring applications.</p>
-</section>
-<section id="railway-arch-bridge-deformation" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="railway-arch-bridge-deformation">Railway Arch-Bridge Deformation</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_14_img_02.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_14_img_01.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-4" class="level2">
-<h2 class="anchored" data-anchor-id="section-4"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_14_img_03.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-5" class="level2">
-<h2 class="anchored" data-anchor-id="section-5"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_14_img_04.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="exe-bidge-using-lvdt" class="level2">
-<h2 class="anchored" data-anchor-id="exe-bidge-using-lvdt">Exe Bidge Using LVDT</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_15_img_01.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-6" class="level2">
-<h2 class="anchored" data-anchor-id="section-6"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_15_img_02.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-7" class="level2">
-<h2 class="anchored" data-anchor-id="section-7"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_16_img_01.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-</section>
-<section id="potentiometer" class="level1">
-<h1>Potentiometer</h1>
-<section id="potentiometers" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="potentiometers">Potentiometers</h2>
+<section id="thermistor-principle" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="thermistor-principle">Thermistor: Principle</h2>
+<p>= Temperature-dependent Resistor</p>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="sensors2/potentiometer-circuit.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="sensors/thermistor.jpg" class="img-fluid figure-img"></p>
+<figcaption>Thermistors Available</figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="sensors2/potentiometer-parts.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="sensors/NTC-vs-PTC-Thermistors-graph.webp" class="img-fluid figure-img"></p>
+<figcaption>NTC vs PTC</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="section-8" class="level2">
-<h2 class="anchored" data-anchor-id="section-8"></h2>
-<p>ASM WS12</p>
+<section id="thermistor" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="thermistor">Thermistor</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="sensors2/asm-ws12.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="700"></p>
+<p><img src="sensors/thermistor.jpg" class="img-fluid figure-img"></p>
+<figcaption>Thermistors Available</figcaption>
 </figure>
 </div>
-</section>
-<section id="section-9" class="level2">
-<h2 class="anchored" data-anchor-id="section-9"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/potensiometer1.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-10" class="level2">
-<h2 class="anchored" data-anchor-id="section-10"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/inside-potentiometer.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="asm-ws12-at-tamar-bridge" class="level2">
-<h2 class="anchored" data-anchor-id="asm-ws12-at-tamar-bridge">ASM WS12 at Tamar Bridge</h2>
-<p>ANSYS Model</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_17_img_02.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-11" class="level2">
-<h2 class="anchored" data-anchor-id="section-11"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_17_img_01.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-12" class="level2">
-<h2 class="anchored" data-anchor-id="section-12"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_17_img_03.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-13" class="level2">
-<h2 class="anchored" data-anchor-id="section-13"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_17_img_04.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-</section>
-<section id="laser-displacement-meter" class="level1">
-<h1>Laser Displacement-meter</h1>
-<section id="laser-distancemeter-type-12" class="level2">
-<h2 class="anchored" data-anchor-id="laser-distancemeter-type-12">Laser Distancemeter Type 1/2</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/laser-dist-wp1.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="laser-distancemeter-type-22" class="level2">
-<h2 class="anchored" data-anchor-id="laser-distancemeter-type-22">Laser Distancemeter Type 2/2</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/laser-time-of-flight.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="hilti-pd4-humber-bridge" class="level2">
-<h2 class="anchored" data-anchor-id="hilti-pd4-humber-bridge">Hilti PD4 @ Humber Bridge</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_18_img_06.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-14" class="level2">
-<h2 class="anchored" data-anchor-id="section-14"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_20_img_04.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-15" class="level2">
-<h2 class="anchored" data-anchor-id="section-15"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_18_img_03.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-16" class="level2">
-<h2 class="anchored" data-anchor-id="section-16"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_18_img_02.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-17" class="level2">
-<h2 class="anchored" data-anchor-id="section-17"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_18_img_05.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-18" class="level2">
-<h2 class="anchored" data-anchor-id="section-18"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_18_img_04.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="bearing-movement-simulation" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="bearing-movement-simulation">Bearing Movement Simulation</h2>
-<div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="sensors2/humber_vehicle_sim.mp4"></video></div>
-</section>
-<section id="measured-bearing-movement" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="measured-bearing-movement">Measured Bearing Movement</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_19_img_01.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-19" class="level2">
-<h2 class="anchored" data-anchor-id="section-19"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_19_img_02.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="humber-br-bearing-replacement" class="level2">
-<h2 class="anchored" data-anchor-id="humber-br-bearing-replacement">Humber Br Bearing Replacement</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_20_img_01.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-20" class="level2">
-<h2 class="anchored" data-anchor-id="section-20"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_20_img_02.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="section-21" class="level2">
-<h2 class="anchored" data-anchor-id="section-21"></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sensors2/slide_20_img_03.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="clousre" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="clousre">Clousre</h2>
+</div><div class="column" style="width:60%;">
 <ul>
-<li>There is No single technology fitting all needs</li>
-<li>There are multiple technologies with varying
-<ul>
-<li>Measurement Range</li>
-<li>Measurement Accuracy</li>
-<li>Measurement Frequency</li>
-<li>Availability under harsh weather condition</li>
-<li>Maintenance Requirement</li>
-</ul></li>
+<li>Semiconductor resistor with strong temperature coefficient (often NTC).</li>
+<li>High sensitivity in a narrow range (e.g., −40 to 150 °C); great for precision around ambient.</li>
+<li>Requires linearization and self-heating must be minimized (use low excitation).</li>
+<li>Alternative for higher accuracy/stability: RTD, Resistance Temperature Detector, made from Platinum (Pt100/Pt1000) with 4-wire measurement.</li>
 </ul>
+</div>
+</div>
+</section>
+<section id="thermistor-products" class="level2">
+<h2 class="anchored" data-anchor-id="thermistor-products">Thermistor: Products</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sensors/campbell-thermistors.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Campbell 107 Temperature Probe</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sensors/campbell_cr200.webp" class="img-fluid figure-img"></p>
+<figcaption>Campbell CR200 Logger</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="thermocouple-principle" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="thermocouple-principle">Thermocouple: Principle</h2>
+<p>Using Seebeck<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Effect</p>
+<p><img src="sensors/thermocouple-principle.png" class="img-fluid" style="width:70.0%"></p>
+<!-- - Extremely wide range (cryogenic to >1200 °C), very fast response, rugged and inexpensive. 
+- Accuracy limited (often ±1–2 °C) and wires must be matched types. 
+- Needs cold-junction compensation, commonly using a thermistor. -->
+<div class="notes">
+<p>The Seebeck effect is the generation of a voltage when two dissimilar conductors form a circuit with a temperature difference between their junctions. Charge carriers diffuse from the hot side to the cold side, creating an electric potential that is proportional to the temperature gradient and the materials’ Seebeck coefficients. This is the physical basis of thermocouples, where the measured voltage is used to infer temperature without external power.</p>
+</div>
+</section>
+<section id="thermocouple-type" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="thermocouple-type">Thermocouple: Type</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
+<col style="width: 14%">
+<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 42%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Type</th>
-<th>Measurement Range</th>
-<th>Typical Accuracy</th>
-<th>Measurement Frequency</th>
-<th>Harsh Weather Availability</th>
-<th>Maintenance Requirement</th>
+<th>Typical range (°C)</th>
+<th>Sensitivity (μV/°C)</th>
+<th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>GNSS-RTK</td>
-<td>Long (km-scale, absolute)</td>
-<td>±2–5 cm (H), ±5–10 cm (V)</td>
-<td>1–20 Hz</td>
-<td>Medium-low (needs sky view; degraded by obstructions)</td>
-<td>Low</td>
+<td>K</td>
+<td>−200 to 1260</td>
+<td>~41</td>
+<td>Nickel–Chromel/Alumel; general purpose</td>
 </tr>
 <tr class="even">
-<td>RTS (Robotic Total Station)</td>
-<td>Medium (hundreds of m to ~3 km, line-of-sight)</td>
-<td>±0.5–1.0 mm</td>
-<td>1–10 Hz (tracking)</td>
-<td>Low (line-of-sight, rain/fog impact)</td>
-<td>Moderate</td>
+<td>J</td>
+<td>−40 to 750</td>
+<td>~55</td>
+<td>Iron/Constantan; not for high temp oxidation</td>
 </tr>
 <tr class="odd">
-<td>Computer Vision</td>
-<td>Short–medium (depends on optics &amp; scale)</td>
-<td>±0.1–1.0 mm</td>
-<td>10–120 Hz</td>
-<td>Low (lighting, rain/fog sensitive)</td>
-<td>Moderate–high</td>
+<td>T</td>
+<td>−200 to 350</td>
+<td>~43</td>
+<td>Copper/Constantan; good for cryogenic/low temp</td>
 </tr>
 <tr class="even">
-<td>Laser (displacement)</td>
-<td>Short–medium (cm to 10s of m)</td>
-<td>±0.1–1.0 mm</td>
-<td>10–1,000+ Hz</td>
-<td>Low–medium (rain/fog/snow affect beam)</td>
-<td>Moderate</td>
+<td>E</td>
+<td>−200 to 900</td>
+<td>~68</td>
+<td>Chromel/Constantan; highest output of common types</td>
 </tr>
 <tr class="odd">
-<td>LVDT</td>
-<td>Short (mm to cm)</td>
-<td>±0.1–1.0 mm</td>
-<td>100–1,000+ Hz</td>
-<td>High (if protected)</td>
-<td>Low–moderate</td>
+<td>N</td>
+<td>−200 to 1260</td>
+<td>~39</td>
+<td>Nicrosil/Nisil; better stability than K</td>
 </tr>
 <tr class="even">
-<td>Potentiometer</td>
-<td>Short–medium (cm to m)</td>
-<td>±0.1–3.0 mm</td>
-<td>10–100 Hz</td>
-<td>High (if protected)</td>
-<td>Moderate–high (wear)</td>
+<td>R/S</td>
+<td>0 to 1600</td>
+<td>~10</td>
+<td>Platinum/Rhodium; high-temp, costly</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>600 to 1700</td>
+<td>~6</td>
+<td>Platinum/Rhodium; best for very high temp</td>
+</tr>
+</tbody>
+</table>
+<div class="notes">
+<ul>
+<li>K-type is the most common for SHM.</li>
+</ul>
+</div>
+</section>
+<section id="thermocouple-products" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="thermocouple-products">Thermocouple: Products</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="sensors/thermocouple-k.jpg" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<p><img src="sensors/thermocouple-hh-520.jpg" class="img-fluid"></p>
+</div>
+</div>
+<div class="notes">
+<ul>
+<li>Some products you can find in Amazon, or eBay.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="wind-sensor" class="level1">
+<h1>Wind Sensor</h1>
+<ul>
+<li>Mechanical Anemomter</li>
+<li>Ultrasonic Anemometer</li>
+</ul>
+<section id="mechanical-vane-or-cup" class="level2">
+<h2 class="anchored" data-anchor-id="mechanical-vane-or-cup">Mechanical: Vane or Cup</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sensors/wind-vane.webp" class="img-fluid figure-img"></p>
+<figcaption>RM Young 05106</figcaption>
+</figure>
+</div>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sensors/wind-cup-arrow.png" class="img-fluid figure-img"></p>
+<figcaption>Weather Station PSG04173</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ultrasonic" class="level2">
+<h2 class="anchored" data-anchor-id="ultrasonic">Ultrasonic</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sensors/wind-ultrasonic.jpg" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>RM Young 86004: 2D</figcaption>
+</figure>
+</div>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sensors/wind-ultrasonic-3d.jpg" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>RM Young 81000: 3D</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="notes">
+<p>Two different experiences from Prof.&nbsp;James Brownjohn and myself</p>
+<ul>
+<li><p>Prof.&nbsp;Brownjohn used an ultrasonic one in the past, and found the measurements were rubbish. Hence, he inclined to use mechanical ones.</p></li>
+<li><p>A mechnical Anemometer was used in Humber Bridge, but on a heavy wind day, it was blown up.</p></li>
+<li><p>My experiences on ultrasonic anemoeter seems to be OK so far, without any faulty measurements.</p></li>
+</ul>
+</div>
+</section>
+<section id="anemometer-summary" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="anemometer-summary">Anemometer Summary</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>Mechanical</th>
+<th>Ultrasonic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Accuracy</td>
+<td>Moderate (±1–3%)</td>
+<td>High (±1% or better)</td>
+</tr>
+<tr class="even">
+<td>Resolution</td>
+<td>Limited by inertia</td>
+<td>Very high</td>
+</tr>
+<tr class="odd">
+<td>Low-speed sensitivity</td>
+<td>Poor</td>
+<td>Excellent</td>
+</tr>
+<tr class="even">
+<td>Gust response</td>
+<td>Slow</td>
+<td>Very fast (up to 10 Hz)</td>
 </tr>
 </tbody>
 </table>
 </section>
 </section>
+<section id="summary" class="level1">
+<h1>Summary</h1>
+<div class="incremental">
+<ul class="incremental">
+<li>Choosing the right sensor is critical for SHM.</li>
+<li>To choose well, you need a clear grasp of working principle and performance of each sensor.</li>
+<li>A choise is made to balance performance, cost, and quantity when deciding sensor type, manufacturer-model, quantities, and locations.</li>
+<li>There may be a chance to look at VES sensors in the future</li>
+</ul>
+</div>
+</section>
 
-</main>
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Thomas Johann Seebeck, a German physicist, discovered this effect in 1821.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1230,8 +1089,6 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
-<script>videojs(video_shortcode_videojs_video1);</script>
-<script>videojs(video_shortcode_videojs_video2);</script>
 
 
 

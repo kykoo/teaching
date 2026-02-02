@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="900"
+   height="1400"
+   viewBox="0 0 900 1400"
+   version="1.1"
+   id="svg34203"
+   sodipodi:docname="3dof_mck_system.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview34205"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.36314984"
+     inkscape:cx="786.17686"
+     inkscape:cy="607.18738"
+     inkscape:window-width="1706"
+     inkscape:window-height="1044"
+     inkscape:window-x="1195"
+     inkscape:window-y="16"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg34203" />
+  <defs
+     id="defs34075">
+    <marker
+       style="overflow:visible;"
+       id="Arrow2Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(1.1) rotate(180) translate(1,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="stroke:context-stroke;fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round;"
+         id="path37893" />
+    </marker>
+    <style
+       id="style34070">
+      .title { font: 700 54px Arial, Helvetica, sans-serif; fill:#2c6aa0; }
+      .label { font: 38px &quot;Times New Roman&quot;, Times, serif; fill:#000; }
+      .small { font: 34px &quot;Times New Roman&quot;, Times, serif; fill:#000; }
+      .massText { font: italic 48px &quot;Times New Roman&quot;, Times, serif; fill:#000; }
+      .thin { stroke:#000; stroke-width:4; fill:none; }
+      .thick { stroke:#000; stroke-width:8; fill:none; }
+      .ground { stroke:#000; stroke-width:6; fill:none; }
+      .mass { fill:#cfcfcf; stroke:#555; stroke-width:6; rx:14; ry:14; }
+    </style>
+    <!-- Arrow marker -->
+    <marker
+       id="arrow"
+       markerWidth="16"
+       markerHeight="16"
+       refX="12"
+       refY="8"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M 0 0 L 16 8 L 0 16 z"
+         fill="#000"
+         id="path34072" />
+    </marker>
+  </defs>
+  <!-- Title -->
+  <!-- Layout constants -->
+  <!-- Mass blocks -->
+  <rect
+     x="250"
+     y="220"
+     width="420"
+     height="140"
+     class="mass"
+     id="rect34081" />
+  <text
+     x="457.24631"
+     y="293.47791"
+     text-anchor="middle"
+     class="massText"
+     id="text34085"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:normal;font-family:'Times New Roman', Times, serif">m<tspan
+   dy="16"
+   font-size="32px"
+   id="tspan34083">1</tspan></text>
+  <rect
+     x="250"
+     y="520"
+     width="420"
+     height="140"
+     class="mass"
+     id="rect34087" />
+  <text
+     x="453.05832"
+     y="598.05481"
+     text-anchor="middle"
+     class="massText"
+     id="text34091"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:normal;font-family:'Times New Roman', Times, serif">m<tspan
+   dy="16"
+   font-size="32px"
+   id="tspan34089">2</tspan></text>
+  <rect
+     x="250"
+     y="820"
+     width="420"
+     height="140"
+     class="mass"
+     id="rect34093" />
+  <text
+     x="462.73654"
+     y="895.17365"
+     text-anchor="middle"
+     class="massText"
+     id="text34097"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:normal;font-family:'Times New Roman', Times, serif">m<tspan
+   dy="16"
+   font-size="32px"
+   id="tspan34095">3</tspan></text>
+  <!-- Force arrow f(t) on the left of m1 -->
+  <line
+     x1="170"
+     y1="349.46402"
+     x2="170"
+     y2="245"
+     class="thick"
+     marker-end="url(#arrow)"
+     id="line34099"
+     style="stroke-width:2.3;stroke-miterlimit:4.0999999;stroke-dasharray:none;marker-end:url(#Arrow2Lend)" />
+  <text
+     x="115"
+     y="305"
+     text-anchor="end"
+     class="label"
+     id="text34101">f(t)</text>
+  <!-- Displacement arrows x1, x2, x3 on the right -->
+  <text
+     x="770"
+     y="305"
+     class="label"
+     id="text34107">x<tspan
+   dy="16"
+   font-size="28"
+   id="tspan34105">1</tspan>(t)</text>
+  <text
+     x="770"
+     y="605"
+     class="label"
+     id="text34113">x<tspan
+   dy="16"
+   font-size="28"
+   id="tspan34111">2</tspan>(t)</text>
+  <text
+     x="770"
+     y="905"
+     class="label"
+     id="text34119">x<tspan
+   dy="16"
+   font-size="28"
+   id="tspan34117">3</tspan>(t)</text>
+  <!-- Springs (left) and dampers (middle/right) between masses and ground -->
+  <!-- Spring k1 between m1 and m2 -->
+  <path
+     class="thick"
+     d="m 398.42472,361.85093 v 17.70261 l -20.31009,14.16208 40.62018,14.1621 -40.62018,14.16209 40.62018,14.16207 -40.62018,14.1621 40.62018,14.1621 -20.31009,14.16208"
+     id="path34121"
+     style="stroke-width:3.84309;stroke-miterlimit:4;stroke-dasharray:none" />
+  <text
+     x="353.43286"
+     y="448.90155"
+     text-anchor="end"
+     class="label"
+     id="text34125"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:38px;line-height:normal;font-family:'Times New Roman', Times, serif">k<tspan
+   dy="16"
+   font-size="28px"
+   id="tspan34123">1</tspan></text>
+  <!-- Damper c1 between m1 and m2 -->
+  <line
+     x1="470"
+     y1="360"
+     x2="470"
+     y2="437.56381"
+     class="thick"
+     id="line34127"
+     style="stroke-width:4.4;stroke-miterlimit:4;stroke-dasharray:none" />
+  <line
+     x1="470.21262"
+     y1="472.11682"
+     x2="470.21262"
+     y2="517.11682"
+     class="thick"
+     id="line34131"
+     style="stroke-width:4.4;stroke-miterlimit:4;stroke-dasharray:none" />
+  <text
+     x="535"
+     y="440"
+     class="label"
+     id="text34135">c<tspan
+   dy="16"
+   font-size="28"
+   id="tspan34133">1</tspan></text>
+  <!-- Spring k2 between m2 and m3 -->
+  <!-- Damper c2 between m2 and m3 -->
+  <!-- Spring k3 between m3 and ground -->
+  <!-- Damper c3 between m3 and ground -->
+  <!-- Connectors (simple vertical rods) -->
+  <!-- m1 to spring/damper top -->
+  <line
+     x1="290"
+     y1="360"
+     x2="290"
+     y2="360"
+     class="thick"
+     id="line34169" />
+  <line
+     x1="470"
+     y1="360"
+     x2="470"
+     y2="360"
+     class="thick"
+     id="line34171" />
+  <!-- Ground -->
+  <line
+     x1="210"
+     y1="1124"
+     x2="720"
+     y2="1124"
+     class="ground"
+     id="line34173" />
+  <!-- Ground hatch -->
+  <g
+     stroke="#000000"
+     stroke-width="4"
+     id="g34201"
+     transform="translate(0,-6)">
+    <line
+       x1="220"
+       y1="1130"
+       x2="200"
+       y2="1160"
+       id="line34175" />
+    <line
+       x1="260"
+       y1="1130"
+       x2="240"
+       y2="1160"
+       id="line34177" />
+    <line
+       x1="300"
+       y1="1130"
+       x2="280"
+       y2="1160"
+       id="line34179" />
+    <line
+       x1="340"
+       y1="1130"
+       x2="320"
+       y2="1160"
+       id="line34181" />
+    <line
+       x1="380"
+       y1="1130"
+       x2="360"
+       y2="1160"
+       id="line34183" />
+    <line
+       x1="420"
+       y1="1130"
+       x2="400"
+       y2="1160"
+       id="line34185" />
+    <line
+       x1="460"
+       y1="1130"
+       x2="440"
+       y2="1160"
+       id="line34187" />
+    <line
+       x1="500"
+       y1="1130"
+       x2="480"
+       y2="1160"
+       id="line34189" />
+    <line
+       x1="540"
+       y1="1130"
+       x2="520"
+       y2="1160"
+       id="line34191" />
+    <line
+       x1="580"
+       y1="1130"
+       x2="560"
+       y2="1160"
+       id="line34193" />
+    <line
+       x1="620"
+       y1="1130"
+       x2="600"
+       y2="1160"
+       id="line34195" />
+    <line
+       x1="660"
+       y1="1130"
+       x2="640"
+       y2="1160"
+       id="line34197" />
+    <line
+       x1="700"
+       y1="1130"
+       x2="680"
+       y2="1160"
+       id="line34199" />
+  </g>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:4.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 442.87711,409.70745 -0.53446,60.79385 h 52.04513 l 0.19139,-60.94691"
+     id="path35910"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:4.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 452.56664,437.84616 32.95281,-0.0274"
+     id="path36987"
+     sodipodi:nodetypes="cc" />
+  <line
+     x1="470.21262"
+     y1="472.11682"
+     x2="470.21262"
+     y2="517.11682"
+     class="thick"
+     id="line37833"
+     style="stroke-width:4.4;stroke-miterlimit:4;stroke-dasharray:none" />
+  <line
+     x1="398.42471"
+     y1="476.40863"
+     x2="398.42471"
+     y2="517.29138"
+     class="thick"
+     id="line37833-4"
+     style="fill:none;stroke:#000000;stroke-width:4.19389;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     class="thick"
+     d="m 401.22787,662.19167 v 17.70261 l -20.31009,14.16208 40.62018,14.1621 -40.62018,14.16209 40.62018,14.16207 -40.62018,14.1621 40.62018,14.1621 -20.31009,14.16208"
+     id="path34121-2"
+     style="fill:none;stroke:#000000;stroke-width:3.84309;stroke-miterlimit:4;stroke-dasharray:none" />
+  <text
+     x="356.23602"
+     y="749.24231"
+     text-anchor="end"
+     class="label"
+     id="text34125-8"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:38px;line-height:normal;font-family:'Times New Roman', Times, serif;fill:#000000">k<tspan
+   font-size="28px"
+   id="tspan34123-4">2</tspan></text>
+  <line
+     x1="472.80316"
+     y1="660.34076"
+     x2="472.80316"
+     y2="737.90454"
+     class="thick"
+     id="line34127-4"
+     style="fill:none;stroke:#000000;stroke-width:4.4;stroke-miterlimit:4;stroke-dasharray:none" />
+  <line
+     x1="473.01578"
+     y1="772.45758"
+     x2="473.01578"
+     y2="817.45758"
+     class="thick"
+     id="line34131-7"
+     style="fill:none;stroke:#000000;stroke-width:4.4;stroke-miterlimit:4;stroke-dasharray:none" />
+  <text
+     x="537.8031"
+     y="740.34076"
+     class="label"
+     id="text34135-0"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:38px;line-height:normal;font-family:'Times New Roman', Times, serif;fill:#000000">c<tspan
+   font-size="28px"
+   id="tspan34133-3">2</tspan></text>
+  <line
+     x1="472.80316"
+     y1="660.34076"
+     x2="472.80316"
+     y2="660.34076"
+     class="thick"
+     id="line34171-0"
+     style="fill:none;stroke:#000000;stroke-width:8" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:4.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 445.68026,710.04819 -0.53446,60.79385 h 52.04513 l 0.19139,-60.94691"
+     id="path35910-3"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:4.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 455.36979,738.1869 32.95281,-0.0274"
+     id="path36987-3"
+     sodipodi:nodetypes="cc" />
+  <line
+     x1="473.01578"
+     y1="772.45758"
+     x2="473.01578"
+     y2="817.45758"
+     class="thick"
+     id="line37833-1"
+     style="fill:none;stroke:#000000;stroke-width:4.4;stroke-miterlimit:4;stroke-dasharray:none" />
+  <line
+     x1="401.22787"
+     y1="776.74939"
+     x2="401.22787"
+     y2="817.63214"
+     class="thick"
+     id="line37833-4-3"
+     style="fill:none;stroke:#000000;stroke-width:4.19389;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     class="thick"
+     d="m 401.58833,965.13786 v 17.70261 l -20.31009,14.16208 40.62018,14.16205 -40.62018,14.1621 40.62018,14.1621 -40.62018,14.1621 40.62018,14.1621 -20.31009,14.1621"
+     id="path34121-8"
+     style="fill:none;stroke:#000000;stroke-width:3.84309;stroke-miterlimit:4;stroke-dasharray:none" />
+  <text
+     x="356.59647"
+     y="1052.1885"
+     text-anchor="end"
+     class="label"
+     id="text34125-5"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:38px;line-height:normal;font-family:'Times New Roman', Times, serif;fill:#000000">k<tspan
+   dy="16"
+   font-size="28px"
+   id="tspan34123-6">1</tspan></text>
+  <line
+     x1="473.1636"
+     y1="963.28693"
+     x2="473.1636"
+     y2="1040.8507"
+     class="thick"
+     id="line34127-5"
+     style="fill:none;stroke:#000000;stroke-width:4.4;stroke-miterlimit:4;stroke-dasharray:none" />
+  <line
+     x1="473.37619"
+     y1="1075.4038"
+     x2="473.37619"
+     y2="1120.4038"
+     class="thick"
+     id="line34131-8"
+     style="fill:none;stroke:#000000;stroke-width:4.4;stroke-miterlimit:4;stroke-dasharray:none" />
+  <text
+     x="538.16364"
+     y="1043.287"
+     class="label"
+     id="text34135-1"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:38px;line-height:normal;font-family:'Times New Roman', Times, serif;fill:#000000">c<tspan
+   dy="16"
+   font-size="28px"
+   id="tspan34133-4">1</tspan></text>
+  <line
+     x1="473.1636"
+     y1="963.28693"
+     x2="473.1636"
+     y2="963.28693"
+     class="thick"
+     id="line34171-5"
+     style="fill:none;stroke:#000000;stroke-width:8" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:4.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 446.04072,1012.9944 -0.53446,60.7938 h 52.04513 l 0.19139,-60.9469"
+     id="path35910-8"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:4.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 455.73025,1041.1331 32.95281,-0.027"
+     id="path36987-1"
+     sodipodi:nodetypes="cc" />
+  <line
+     x1="473.37619"
+     y1="1075.4038"
+     x2="473.37619"
+     y2="1120.4038"
+     class="thick"
+     id="line37833-2"
+     style="fill:none;stroke:#000000;stroke-width:4.4;stroke-miterlimit:4;stroke-dasharray:none" />
+  <line
+     x1="401.58832"
+     y1="1079.6956"
+     x2="401.58832"
+     y2="1120.5784"
+     class="thick"
+     id="line37833-4-0"
+     style="fill:none;stroke:#000000;stroke-width:4.19389;stroke-miterlimit:4;stroke-dasharray:none" />
+</svg>

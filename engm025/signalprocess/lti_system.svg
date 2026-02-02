@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="500"
+   height="160"
+   viewBox="-250 -80 500 160"
+   version="1.1"
+   id="svg194"
+   sodipodi:docname="tikz_lti_system.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview196"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="2.762"
+     inkscape:cx="235.8798"
+     inkscape:cy="108.43592"
+     inkscape:window-width="1706"
+     inkscape:window-height="1044"
+     inkscape:window-x="1195"
+     inkscape:window-y="16"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg194" />
+  <defs
+     id="defs178">
+    <marker
+       id="arrow"
+       markerWidth="10"
+       markerHeight="10"
+       refX="8"
+       refY="3"
+       orient="auto">
+      <path
+         d="M0,0 L0,6 L9,3 z"
+         fill="black"
+         id="path175" />
+    </marker>
+  </defs>
+  <!-- System block -->
+  <rect
+     x="-63.989941"
+     y="-29.496904"
+     width="125.13406"
+     height="60.170452"
+     fill="none"
+     stroke="#000000"
+     stroke-width="1.28376"
+     id="rect180" />
+  <text
+     x="0"
+     y="-5"
+     text-anchor="middle"
+     font-size="16"
+     id="text182">LTI System</text>
+  <text
+     x="-0.27801135"
+     y="18.880161"
+     text-anchor="middle"
+     font-size="16px"
+     id="text182-1">h(t) or H(ω)</text>
+  <text
+     x="0"
+     y="18"
+     text-anchor="middle"
+     font-size="14px"
+     id="text184"
+     style="text-align:start;text-anchor:start;white-space:pre;inline-size:273.377"
+     transform="translate(-65.172642,32.64013)"
+     xml:space="preserve"><tspan
+       x="0"
+       y="18"
+       id="tspan33868">h(t): Impulse Response function
+</tspan><tspan
+       x="0"
+       y="35.5"
+       id="tspan33870">H(ω): Frequency Response function</tspan></text>
+  <!-- Input arrow -->
+  <line
+     x1="-119.34502"
+     y1="1.1600325"
+     x2="-68.360847"
+     y2="1.1600325"
+     stroke="#000000"
+     stroke-width="2"
+     marker-end="url(#arrow)"
+     id="line186" />
+  <text
+     x="-123.95434"
+     y="6.0110345"
+     text-anchor="end"
+     font-size="14px"
+     id="text188">x(t)</text>
+  <!-- Output arrow -->
+  <line
+     x1="63.325611"
+     y1="-0.32128531"
+     x2="105.27908"
+     y2="-0.32128531"
+     stroke="#000000"
+     stroke-width="2"
+     marker-end="url(#arrow)"
+     id="line190" />
+  <text
+     x="112.6092"
+     y="4.2709351"
+     font-size="14px"
+     id="text192">y(t)</text>
+</svg>

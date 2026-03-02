@@ -1,0 +1,395 @@
+INTRODUCTION TO CIVIL
+ENGINEERING
+
+INTRODUCTION
+What is Engineering
+
+The term engineering is derived from the Latin ingenium, meaning "cleverness" and Latin ingeniare, meaning
+"to contrive, devise".
+
+Engineering is the use of scientific principles to design and build machines, structures, and other items,
+including bridges, tunnels, roads, vehicles, and buildings. [Cambridge Academic Content Dictionary].
+
+The American Engineers' Council for Professional Development (ECPD, the predecessor of ABET) has defined
+"engineering" as:
+The creative application of scientific principles to design or develop structures, machines, apparatus, or
+manufacturing processes, or works utilizing them singly or in combination; or to construct or operate the same
+with full cognizance of their design; or to forecast their behavior under specific operating conditions; all as
+respects an intended function, economics of operation and safety to life and property.
+
+INTRODUCTION
+What is Engineering
+Engineering is the creative application of science, mathematical methods, and empirical evidence to
+the innovation, design, construction, and maintenance of structures, machines, materials,
+devices, systems, processes, and organizations. The discipline of engineering encompasses a broad range of
+more specialized fields of engineering, each with a more specific emphasis on particular areas of applied
+mathematics, applied science, and types of application [Wikipedia].
+The concept of engineering has existed since ancient times as humans devised fundamental inventions such as
+the pulley, lever, and wheel. Each of these inventions is consistent with the modern definition of engineering,
+exploiting basic mechanical principles to develop useful tools and objects [Wikipedia].
+Later, as the design of civilian structures, such as bridges and buildings, matured as a technical discipline, the
+term civil engineering entered the lexicon as a way to distinguish between those specializing in the construction
+of such non-military projects and those involved in the discipline of military engineering.
+
+INTRODUCTION
+What is Civil Engineering
+Civil engineering is a professional engineering discipline that deals with the design, construction, and
+maintenance of the physical and naturally built environment, including public works such as roads, bridges,
+canals, dams, airports, sewerage systems, pipelines, structural components of buildings, and railways.
+Civil engineering is traditionally broken into a number of sub-disciplines. It is considered the second-oldest
+engineering discipline after military engineering, and it is defined to distinguish non-military engineering from
+military engineering.
+
+INTRODUCTION
+History of Civil Engineering
+It is difficult to determine the history of emergence and beginning of civil engineering, however, that the
+history of civil engineering is a mirror of the history of human beings on this earth. People used the old
+shelter caves to protect themselves of weather and harsh environment, and used a tree trunk to cross the
+river, which being the demonstration of ancient age civil engineering.
+Civil Engineering has been an aspect of life since the beginnings of human existence. The earliest practices
+of Civil engineering may have commenced between 4000 and 2000 BC in Ancient Egypt and Mesopotamia
+(Ancient Iraq) when humans started to abandon a nomadic existence, thus causing a need for the construction
+of shelter. During this time, transportation became increasingly important leading to the development of the
+wheel and sailing.
+
+INTRODUCTION
+History of Civil Engineering
+
+Some of the ancient historic civil engineering constructions can be given as follows:
+1)
+2)
+3)
+4)
+5)
+6)
+7)
+8)
+
+Pyramids in ancient Egypt,
+Ziggurats of Mesopotamia,
+Acropolis and Parthenon in Greece,
+Roman aqueducts,
+Via Appia,
+Collosseum,
+Hanging Gardens of Babylon,
+Pharos of Alexandria,
+
+no longer standing
+
+INTRODUCTION
+History of Civil Engineering
+1) Pyramids in ancient Egypt:
+The Egyptian pyramids are ancient pyramid-shaped masonry structures located in Egypt. Most were built as
+tombs for the country's pharaohs and their consorts during the Old and Middle Kingdom periods.
+Limestone and sandstone were the main building stones of ancient Egypt.
+The pyramids of Giza are among the most recognizable symbols of the civilization of ancient Egypt.
+A view of the pyramids at Giza from the plateau to the south of the complex. From left to right, the three
+largest are: the Pyramid of Menkaure, the Pyramid of Khafre and the Great Pyramid of Khufu.
+
+INTRODUCTION
+History of Civil Engineering
+2) Ziggurats of Mesopotamia :
+Ziggurats were ancient towering, stepped structures built in the ancient Mesopotamian valley and western
+Iranian plateau, having the form of a terraced step pyramid of successively receding stories or levels. They
+were made of mud-brick that appear to have served as temples to the ancient gods of Mesopotamia. Ziggurat
+bases were square or rectangular. Their walls were sloping.
+The ziggurat was built to honor the main god of the city. The tradition of creating a ziggurat started by the
+Sumerians, but other civilizations of Mesopotamia, such as the Akkadians, the Babylonians, and the Assyrians,
+also built ziggurats for local religions. Each ziggurat was part of a temple complex that included other
+buildings. The ziggurats began as a platform (usually oval, rectangular, or square), and was a mastaba-like
+structure with a flat top. The sun-baked bricks made up the core of the construction with facings of fired bricks
+on the outside. Each step was slightly smaller than the level below it. The number of floors ranged from two to
+seven.
+
+mud-brick: an air-dried brick, made of
+a mixture of loam, mud, sand and
+water mixed with a binding material
+such as rice husks or straw.
+
+INTRODUCTION
+History of Civil Engineering
+3) Acropolis and Parthenon in Greece :
+The Acropolis of Athens is an ancient citadel located on a rocky outcrop above the city of Athens and contains
+the remains of several ancient buildings of great architectural and historic significance, the most famous being
+the Parthenon.
+The Parthenon was built under the general supervision of the artist Phidias, who also had charge of the
+sculptural decoration. The architects Ictinos and Callicrates began their work in 447 BC, and the building was
+substantially completed by 432. However, work on the decorations continued until at least 431. The Parthenon
+was built primarily by men who knew how to work marble. These quarrymen had exceptional skills and were
+able to cut the blocks of marble to very specific measurements. If the marble blocks were not up to standard,
+the architects would reject them.
+
+INTRODUCTION
+History of Civil Engineering
+4) Roman aqueducts :
+The Romans constructed aqueducts throughout their Republic and later Empire, to bring water from outside
+sources into cities and towns. They were made from a series of pipes, tunnels, canals, and bridges. They also
+supported mining operations, milling, farms, and gardens.
+Aqueducts moved water through gravity alone, along a slight overall downward gradient within conduits of
+stone, brick, or concrete; the steeper the gradient, the faster the flow.
+The most recognizable feature of Roman aqueducts may be the bridges constructed using rounded stone
+arches.
+
+INTRODUCTION
+History of Civil Engineering
+5) The Appian Way (Via Appia) :
+The Appian Way is one of the earliest and strategically most important Roman roads of the ancient republic. It
+connected Rome to Brindisi, in southeast Italy.
+The road is named after Appius Claudius Caecus, the Roman censor who began and completed the first section as
+a military road to the south in 312 BC during the Samnite Wars.
+The Appian Way was the first long road built specifically to transport troops outside the smaller region of greater
+Rome (this was essential to the Romans).
+The road began as a leveled dirt road upon which small stones and mortar were laid. Gravel was laid upon this,
+which was finally topped with tight fitting, interlocking stones to provide a flat surface.
+The road was cambered in the middle (for water runoff) and had ditches on either side of the road which were
+protected by retaining walls.
+
+INTRODUCTION
+History of Civil Engineering
+6) Colosseum :
+The Colosseum is an oval amphitheatre in the centre of the city of Rome, Italy. It was the largest amphitheatre ever
+built at the time and held 50,000 to 80,000 spectators. Built of travertine limestone, tuff (volcanic rock), and
+brick-faced concrete, the Colosseum is just east of the Roman Forum.
+Construction began under the emperor Vespasian in AD 72 and was completed in AD 80 under his successor
+and heir, Titus.
+The Colosseum was badly damaged by a major fire (caused by lightning) which destroyed the wooden upper
+levels of the amphitheatre's interior. It was not fully repaired until about 240 and underwent further repairs in
+250 or 252 and again in 320.
+
+INTRODUCTION
+History of Civil Engineering
+7) Hanging Gardens of Babylon :
+The Hanging Gardens of Babylon were one of the Seven Wonders of the Ancient World listed by Hellenic
+culture. They were described as a remarkable feat of engineering with an ascending series of tiered gardens
+containing a wide variety of trees, shrubs, and vines, resembling a large green mountain constructed of mud
+bricks. It was said to have been built in the ancient city of Babylon, near present-day Hillah, Babil province, in
+Iraq. The Hanging Gardens' name is derived from the Greek word which means 'overhanging', which has a
+broader meaning than the modern English word "hanging" and refers to trees being planted on a raised
+structure such as a terrace.
+The Hanging Gardens of Babylon were an impressive example of architecture. The gardens formed a
+quadrilateral shape. There were stairways that led to the uppermost terraced roofs. The plants hung over
+terraces that were supported by stone columns. There were arched vaults, which were located on cubed
+fountains. The fountains created a humidity that helped keep the area cool. The shade from the trees also helped
+keep the gardens cool. The garden ascended in closely planted levels to form a man-made replica of mountain
+greenery. The gardens were supported by an intricate structure of stone pillars, brick walls, and palm tree trunk
+beams.
+
+Hanging Gardens of Babylon are no longer
+standing.
+
+INTRODUCTION
+History of Civil Engineering
+8) Pharos of Alexandria :
+Pharos of Alexandria, also called the Lighthouse of Alexandria, was a lighthouse built by the Ptolemaic
+Kingdom, during the reign of Ptolemy II Philadelphus (280–247 BC), which has been estimated to be at least
+100 metres in overall height.
+Pharos of Alexandria is one of the Seven Wonders of the Ancient World, for many centuries it was one of the
+tallest man-made structures in the world.
+The lighthouse was severely damaged by three earthquakes between 956 AD and 1323 and became an
+abandoned ruin. It was the third longest surviving ancient wonder (after the Mausoleum at Halicarnassus and
+the extant Great Pyramid of Giza), surviving in part until 1480, when the last of its remnant stones were used
+to build the Citadel of Qaitbay on the site.
+The lighthouse was constructed in the 3rd century BC. The light was produced by a furnace at the top, and the
+tower was said to have been built mostly with solid blocks of limestone.
+
+Pharos of Alexandria are no longer
+standing.
+
+INTRODUCTION
+History of Civil Engineering
+Engineers developed techniques for constructing astounding buildings, including cathedrals and castles
+during the medieval and Renaissance periods.
+Until modern times there was no clear distinction between civil engineering and architecture, and the term
+engineer and architect were mainly geographical variations referring to the same occupation, and often
+used interchangeably.
+Mimar Sinan was the chief Ottoman architect and civil engineer. He was responsible for the construction of
+more than 300 major structures and other more modest projects, such as schools. His masterpiece is the
+Selimiye Mosque in Edirne, although his most famous work is the Suleiman Mosque in Istanbul.
+Mosque is the first of the grand mosques created by Sinan.
+The Mihrimah Sultan Mosque, which is also known as the Üsküdar Quay Mosque, was completed in the same
+year and has an original design with its main dome supported by three half domes.
+Sinan masterfully combined art with functionalism in the bridges he built. The largest of these is the nearly
+635 m long Büyükçekmece Bridge. Other important examples are the Ailivri Bridge, the Old
+Bridge in Svilengrad on the Maritsa, the Lüleburgaz (Sokullu Mehmet Pasha) Bridge on the Lüleburgaz
+Bridge over Drina river
+River, the
+Bridge over the river Ergene and the Mehmed Paša
+in Bosnia and Herzegovina.[38]
+While Sinan was maintaining and improving the water supply system of Istanbul, he built arched aqueducts
+at several locations within the city. The Ma lova Arch over the Alibey River, which is 257 m long and 35 m
+high, has two tiers of arches, and is one of the best examples of its kind.
+
+INTRODUCTION
+History of Civil Engineering
+1) Hagia Sophia (Ayasofya) is a Late Antique place of worship in Istanbul. Built in 537 as the patriarchal
+cathedral of the imperial capital of Constantinople, it was the largest Christian church of the eastern Roman
+Empire (the Byzantine Empire) and the Eastern Orthodox Church, except during the Latin Empire from 1204
+to 1261, when it became the city's Roman Catholic cathedral. In 1453, it was converted into a mosque. In
+1935 Turkish Republic established it as a museum. In 2020, it re-opened as a mosque.
+It was designed by Anthemius of Tralles, and Isidore of Miletus.
+The Hagia Sophia is a masonry construction. The structure has brick and mortar joints that are 1.5
+times the width of the bricks. The mortar joints are composed of a combination of sand and minute ceramic
+pieces distributed evenly throughout the mortar joints.
+
+INTRODUCTION
+History of Civil Engineering
+2) Sheikh Matar Mosque or Sheikh Mutahhar Mosque (Turkish:
+Matar Camii) is a historical mosque in
+Turkey, best known for its unique minaret based on four columns, dubbed the Four-legged Minaret
+(Turkish: Dört
+Minare).
+According to an inscription attached at the minaret, the mosque was built by Hajji Hüseyin, son of Hajji Ömer during
+the reign of Ag Qoyunlu Sultan
+Han in 1500. Locally, it is also known as the "
+Padishah Mosque".
+The mosque is a single-dome, quadratic-plan building having stone masonry walls alternating with brick. There are
+three windows at each side, and two in the front and backside each, all arched. The two windows on the qibla wall
+are closed with masonry. It has a covered area of 221 m2 , and can hold up to 500 worshipers.
+
+The mosque underwent a restoration in 1960 through the General
+Directorate of Foundations.
+
+INTRODUCTION
+History of Civil Engineering
+3) The Selimiye Mosque (Turkish: Selimiye Camii) is an Ottoman imperial mosque, which is located in the city
+of Edirne (formerly Adrianople), Turkey is a UNESCO World Heritage Site. The mosque was commissioned
+by Sultan Selim II, and was built by the architect Mimar Sinan between 1568 and 1575. It was considered
+by Sinan to be his masterpiece and is one of the highest achievements of Islamic architecture.
+The complex includes a large mosque as well as a religious school (medrese), a primary school, and a
+marketplace. It is laid out on a rectangular compound enclosed by a wall with several gates on each side.
+The main entrance is on the northwest side of the rectangular enclosure (the side opposite the qibla).
+Entering the gate, one emerges onto a large open space that surrounds the mosque on three sides. The main
+entrance to the mosque is situated directly across the open space from the main gate in the enclosure wall.
+
+INTRODUCTION
+History of Civil Engineering
+The science of classical mechanics, sometimes called Newtonian mechanics, formed the scientific basis of much of
+modern engineering.
+In the 18th century, the term civil engineering was coined to incorporate all things civilian as opposed to military
+engineering. The first institution for the teaching of civil engineering, the École Nationale des Ponts et Chaussées was
+established in France.
+École Nationale des Ponts et Chaussées (renamed École des ponts ParisTech), founded in 1747 by Daniel-Charles
+Trudaine, is one of the oldest and one of the most prestigious French Grandes Écoles.
+Following the creation of the Corps of Bridges and Roads in 1716, the King's Council decided in 1747 to found a
+specific training course for the state's engineers, as École royale des ponts et chaussées. In 1775, the school took its
+current name as École nationale des ponts et chaussées, by Daniel-Charles Trudaine, in a moment when the state
+decided to set up a progressive and efficient control of the building of roads, bridges and canals, and in the training of
+civil engineers. The school's first director, from 1747 until 1794, was Jean-Rodolphe Perronet, engineer, civil service
+administrator. Without lecturer, fifty students initially taught themselves geometry, algebra, mechanics and hydraulics.
+Visits of building sites, cooperations with scientists and engineers and participation to the drawing of the map of the
+kingdom used to complete their training, which was usually four to twelve years long.
+
+INTRODUCTION
+History of Civil Engineering
+John Smeaton was the first self-proclaimed civil engineer and is often regarded as the "father of civil engineering". He
+was an English civil engineer responsible for the design of bridges, canals, harbors, and lighthouses. He was also a
+capable mechanical engineer and an eminent physicist. Using a model water wheel, Smeaton conducted experiments for
+seven years, determining ways to increase efficiency. Smeaton introduced iron axles and gears to water wheels. Smeaton
+also made mechanical improvements to the Newcomen steam engine. Smeaton designed the third Eddystone Lighthouse
+(1755–59) where he pioneered the use of 'hydraulic lime' (a form of mortar which will set under water) and developed a
+technique involving dovetailed blocks of granite in the building of the lighthouse.
+
+INTRODUCTION
+History of Civil Engineering
+Isambard Kingdom Brunel was an English civil engineer who is considered:
+- one of the most ingenious and prolific figures in engineering history,
+- one of the 19th-century engineering giants,
+- one of the greatest figures of the Industrial Revolution who changed the face of the English landscape with his
+groundbreaking designs and ingenious constructions.
+Brunel built dockyards, the Great Western Railway (GWR), a series of steamships including the first propeller-driven
+transatlantic steamship, and numerous important bridges and tunnels. His designs revolutionized public transport and
+modern engineering. Though Brunel's projects were not always successful, they often contained innovative solutions to longstanding engineering problems. During his career, Brunel achieved many engineering firsts.
+
+INTRODUCTION
+History of Civil Engineering
+In 1818 the Institution of Civil Engineers was founded in London, and in 1820 the eminent engineer Thomas Telford became its
+first president. The institution received a Royal Charter in 1828, formally recognising civil engineering as a profession. Its
+charter defined civil engineering as:
+«the art of directing the great sources of power in nature for the use and convenience of man, as the means of production and
+of traffic in states, both for external and internal trade, as applied in the construction of roads, bridges, aqueducts, canals,
+river navigation and docks for internal intercourse and exchange, and in the construction of ports, harbours, moles, breakwaters
+and lighthouses, and in the art of navigation by artificial power for the purposes of commerce, and in the construction and
+application of machinery, and in the drainage of cities and towns.»
+
+INTRODUCTION
+History of Civil Engineering
+The first private college to teach civil engineering in the United States was Norwich University, founded in 1819 by Captain
+Alden Partridge. The first degree in civil engineering in the United States was awarded by Rensselaer Polytechnic Institute in
+1835. The first such degree to be awarded to a woman was granted by Cornell University to Nora Stanton Blatch in 1905.
+
+INTRODUCTION
+History of Civil Engineering
+In the UK during the early 19th century, the division between civil engineering and military engineering (served by the Royal
+Military Academy, Woolwich), coupled with the demands of the Industrial Revolution, spawned new engineering education
+initiatives:
+- the Class of Civil Engineering and Mining was founded at King's College London in 1838, mainly as a response to the
+growth of the railway system and the need for more qualified engineers,
+- the private College for Civil Engineers in Putney was established in 1839, and
+the UK's first Chair of Engineering was established at the University of Glasgow in 1840.
+
+INTRODUCTION
+History of Civil Engineering
+Mühendishane-i Bahr-i Hümayun, which interprets into the Imperial School of Naval Engineering, was established in 1773 to
+provide western style education in engineering for the first time in the Ottoman Empire. It trained expert personnel on
+shipbuilding and nautical charts. The founder of the school located at Haliç dockyard was Baron de Tott, who was a
+Hungarian aristocrat. Baron de Tott played a significant role in the innovation movement of the Ottoman, and also taught at the
+school. The first head teacher however, was Seyyid Hasan Hodja, an Algerian who spoke many languages and was educated
+in Marine Engineering. It is thought that the school’s library is enriched with work translated from foreign languages.
+
+INTRODUCTION
+History of Civil Engineering
+Mühendishane-i Berr-i Hümayun (the Imperial School of Land Engineering) was established in 1795 during the period of Selim
+III to train artillery officers. It was an extension of the Mühendishane-i Bahr-i Hümayun and the duration of education was four
+years. Selim III placed importance in the schools development and sent books from the
+Palace. The Sultan, who
+enabled the opportunity of establishing a printing house as part of the school also contributed to its equipment by donating
+observing and measuring instruments. Subjects such as, military engineering, cannonball foundry, artillery and astronomy were
+among the lectures administered at the school. The contribution of French academics and engineers is also considerable. In
+1847, lessons in the field of architecture were also introducted into the curriculum at the Mühendishane-i Berr-i Hümayun and
+the commencement of western architectural knowledge had begun. The Mühendishane-i Berr-i Hümayun converted into
+Hendese-i Mülkiye (Technical School of Engineering) in 1883 and thereafter by adopting the name Mühendis Mekteb-i Alisi
+(Certified Engineering School) in 1909, it provided education to train civil architect and engineers.
+
+INTRODUCTION
+History of Civil Engineering
+In consequence of engineering and architecture education that was reformed with the establishment of the Republic,
+Mühendis Mekteb-i Alis (Certified Engineering School) was organized as a school that provided training including the
+branches of building, road, railway and waterworks. In 1929, in addition to existing waterworks and road branches in the
+School, civil work department was also added and in the area of architecture, the education was commenced. Certified
+Engineering School, which produced first graduates in 1931, trained technical personnel for public works of the Turkish
+Republic. In 1940’s, Certified Engineering School strengthened itself with the participation of academic members, who
+departed from Germany and Switzerland, and it became an exclusive and a pioneering education institution in the field of
+technical education.
+Prof. Karl von Terzaghi, was a geotechnical engineer, and known as the "father of soil mechanics and geotechnical
+engineering", conducted research and taught in higher educational institutions in Certified Engineering School in Turkey.
+
+INTRODUCTION
+History of Civil Engineering
+In 1944, Certified Engineering School turned into stanbul Technical University. In the beginning, academic staff of the faculties
+were quite limited and later on, expansion of academic staff led to specialising in the branches of sciences and staffing. Istanbul
+Technical University consisted of the faculties of Civil Engineering, Architecture, Mechanical Engineering and Electrical Engineering
+in the first years.
+
+INTRODUCTION
+History of Civil Engineering
+In 1863, Robert College was founded in Bebek ( stanbul) by Christopher Robert, a wealthy American philanthropist, and Cyrus
+Hamlin. Robert College is the oldest continuously operating American school outside the United States. It was incorporated under
+the laws of the State of New York.
+Robert College School of Engineering was opened in 1912, with civil engineering, mechanical engineering and electrical
+engineering as the three areas of instruction. Robert College was transformed into Bo aziçi University in 1971,
+
+REFERENCES
+
+1) http://www.thecivilengg.com/History.php
+2) https://archeyes.com/ziggurat-temples-architecture-mesopotamia/
+3) http://www.ce.boun.edu.tr/?q=history
+4) https://en.wikipedia.org/wiki/History_of_engineering
+5) https://en.wikipedia.org/wiki/Civil_engineering
+6) http://www.thecivilengg.com
+7) https://global.itu.edu.tr/global-itu/history
+8) Civil Engineer's Handbook of Professional Practice by Karen Lee Hansen and Kent E. Zenobia
+9) https://www.nationalgeographic.org/encyclopedia/roman-aqueducts/
+10) https://www.ck12.org/section/engineering-in-medieval-and-renaissance-europe/
+11) https://en.wikipedia.org/wiki/%C3%89cole_des_ponts_ParisTech
+
+

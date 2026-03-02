@@ -1,0 +1,984 @@
+Introduction
+to
+Civil Engineering
+Dr. S. K. Prasad
+Assistant Professor in Civil Engineering
+S. J. College of Engineering
+Mysore
+
+This presentation deals with
+• Introduction to Civil Engineering
+• Scope of Different fields of Civil Engineering
+– Architecture & Town Planning
+– Building Materials
+– Construction Technology
+– Environmental Engineering
+– Geotechnical Engineering
+– Hydraulics, Water Resource & Irrigation Engineering
+– Remote Sensing & GIS
+– Structural Engineering
+– Surveying
+– Transportation Engineering
+
+This presentation also deals with
+• Roads
+– Basic definition
+– Cross Section of road
+– Components of Road
+– Types of Road and their Functions
+
+• Bridges
+– Definition
+– Functions
+– Classification
+
+• Dams
+– Definition
+– Functions
+– Classification
+
+This presentation also deals with
+• Infrastructure
+• Types of Infrastructure
+• Role of Civil Engineers in Infrastructure
+Development
+• Effect of Infrastructure on economic
+development of a country
+
+Engineering
+• Ingenious means ‘Clever person’ in Latin
+• Engineer cleverly uses the available natural
+resources for the benefit of mankind
+• Provides comfort to mankind and makes life
+comfortable.
+• Application of scientific and mathematical
+knowledge and rational thinking to improve living
+standards
+
+Civil Engineering
+• Oldest branch of engineering, next to Military engineering. All
+engineering works other than for military purposes were
+grouped in to Civil Engineering. Mechanical, Electrical,
+Electronics & present day Information technology followed it.
+• A professional engineering discipline that deals with the
+analysis, design, construction and maintenance of
+infrastructural facilities such as buildings, bridges, dams,
+roads etc.
+• Constructions are against nature.
+• Application of physical, mathematical and scientific principles
+for the convenience of civilization.
+• Began b/w 4000 BC and 2000 BC (during Ancient Egypt,
+Mesapotamia, Indus Valley Civilisations).
+• John Smeaton was the first self proclaimed Civil Engineer
+who built Eddystone Light House in 1771.
+
+Civil Engineering is Everywhere
+
+Why?
+
+61% are clueless
+about engineering
+
+Civil Engineering is a
+composite of many
+specific disciplines that
+include structural
+engineering, water
+engineering, waste
+material management
+and engineering,
+foundation engineering
+etc. among many.
+
+Building Big!!!!
+Buildings & Structures: Cities
+Infrastructure: Transportation
+Culture: Art: Architecture
+The Future: Without Limit!
+Link: Building Big Site
+
+Natural Disasters & Civil Engineering
+
+• A tornado?
+ An earthquake ?
+
+ A flood?
+
+DISCIPLINES OF CIVIL ENGINERING
+Architecture &
+Town Planning
+
+Hydraulics,
+Water Resource &
+Irrigation Engineering
+
+Building
+Materials
+
+Remote Sensing & GIS
+
+Construction
+Technology
+
+Civil Engineering
+
+Structural
+Engineering
+
+Environmental
+Engineering
+
+Surveying
+
+Geotechnical
+Engineering
+
+Transportation
+Engineering
+
+Architecture & Town Planning
+• Giving beauty to buildings is architecture
+– Enhancing the appearance
+– Maintaining heritage
+
+• Proper planning of towns & cities
+– Planning the layout
+– Planning the road
+– Separating the commercial, residential, academic and
+industrial areas
+– Planning green belt
+– Planning sewage disposal units
+– Planning water treatment plants and water storage
+units
+Presently separated from Civil Engineering
+
+Building Materials Technology
+• This deals with materials used for construction. Brick, tiles,
+soil, cement, stone, sand, steel, aggregates, glass, wood,
+plastics etc. include construction materials. Some are natural
+and many are man made.
+• This deals with the proper use of desired material
+economically and safely.
+• The mechanical properties of these materials shall be
+sufficient to avoid failure and excessive deformation and
+provide durability.
+• The chemical properties shall be to maintain good
+environment.
+
+Construction Technology
+& Management
+• Deals with planning, scheduling and
+execution of construction activity related to
+a project.
+• Comprises of men, material, time and
+money management.
+• Emphasis will be on new construction
+practice, use of appropriate and local
+technology, safety of men and material,
+utilization of marginal materials etc.
+
+Construction Technology
+& Management
+• Construction managers:
+– Review contracts,
+– Order materials,
+– Hire and schedule subcontractors.
+
+• The job of a
+construction manager is
+to:
+– Provide quality control
+and insure project is
+completed on time and.
+– Within budget.
+
+Environmental Engineering
+• Environment is the available nature around us. It
+includes the life support system such as water, air
+and land/Soil.
+• Environmental engineering deals with the
+technology to save nature from human and natural
+abuse and pollution.
+• The study involves balanced compromise between
+environment and safety.
+• It deals with,
+– Technique of water collection, purification and supply
+– Waste water collection, treatment and disposal
+– Control of all types of pollution
+
+Environmental
+Engineering
+
+Environmentalist
+Vs
+Environmental
+Engineer
+
+Geotechnical Engineering
+• All structures are founded on ground. Forces from
+structure are safely transferred to soil. Essential to
+understand ground behavior and interaction
+between soil and structure.
+• Involves
+– Foundations
+– Slopes
+– Retaining Structures
+– Highway pavement design
+– Embankments and earth dams
+– Tunnels, underground structures and deep cuts
+
+Geotechnical
+Engineering
+• To assess the quality
+of soil or rock to carry
+the structure
+• Proper knowledge of
+geotechnical engg is
+necessary for safety
+and stability of
+structures
+
+For a geotechnical engineer,
+
+Super Structure
+Ground Level
+
+Foundation Soil
+
+Foundation
+or
+Substructur
+e
+
+Foundation Soil and sub-structure should resist
+forces
+
+•Hydraulics deals with
+mechanics of water (fluid)
+flow.
+
+Hydraulics,
+Water Resource
+•Water resource engineering
+& Irrigation
+deals with identification &
+Engineering
+utilization of available water
+resources minimizing the
+loss. Surface water such as
+river and lake water and
+ground water are usefully
+managed.
+•This also deals with ground
+water utilization, ground
+water recharge and rain water
+Archemedis Screw
+harvesting.
+Hand operated tool to rise water
+
+Hydraulics, Water Resource & Irrigation
+Engineering
+
+• Irrigation engineering deals with water management for
+agriculture purpose.
+
+• Dams are constructed at the desired locations to store water
+in reservoir when the supply from river is good and to utilize
+for useful purpose during draught. Canals are built for the
+purpose. During excess input, water is allowed to main river
+through the body of dam to avoid flooding.
+
+Falkirk Wheel in Scotland
+
+Hoover Dam in USA
+
+Hydraulics, Water Resource & Irrigation
+Engineering
+• Water management
+involves the use of
+hydrologic
+and hydraulic
+principles to design:
+– Drainage systems,
+– Detention/retention
+ponds,
+– Navigational
+waterways, and
+– Flood control levees,
+dams, and lakes.
+
+Remote Sensing & GIS
+• This is one of the new fields.
+• The improvement in space technology,
+availability of GPS enhanced the scope of
+geographic information system.
+
+• Good mapping technique helps to get required
+information accurately and quickly to effectively
+manage and monitor the available resources for
+optimal use.
+• GIS is an hightech equivalent of map. It represents a
+means to locate ourselves in relation to world
+around us. It deals with measurement, mapping,
+monitoring and modeling of geographic information
+around us.
+
+Structural Engineering
+
+Burj Dubai
+
+Petronas
+
+• Structure is the assemblage of two or more
+basic elements such as beam, slab, column,
+truss, frame, shells etc.
+• Deals with the requirements considering design
+for limit states of collapse and serviceability.
+
+• Involves determination of support Structural
+reactions, member forces and
+moments, deflection and
+Engineering
+deformations.
+• Deals with planning of
+positions/layout of different
+elements and design
+(determination of size, shape and
+material) of component such that
+safety and serviceability
+requirements are not sacrificed,
+yet economy is considered.
+• Repair, rehabilitation and
+maintenance is part of structural
+engineering.
+• Dams, Bridges, Stadiums,
+Auditoriums, Multi-storeyed
+buildings are analysed & designed
+
+Surveying
+• Activity involved in collection
+of topographic features of a
+location for future
+construction.
+• Feasibility survey, alternate
+and most suitable method is
+evolved
+• Helps in environmental
+impact assessment
+
+Surveying
+Objectives of Surveying
+•Execution of survey to collect
+topographic data
+•Calculation and analysis of data, plotting
+survey data to create design maps
+•Provision of line, grade and other
+layout works
+
+Total Station
+
+• Application of scientific approach
+(planning, design, operation and
+management) of transportation
+systems such as roads, railway,
+sea/river & air transports.
+
+Transportation
+Engineering
+
+• It involves planning, design,
+construction/operation and
+maintenance of transportation facility.
+• In air strip runways, roads and
+railway, the study includes the design
+of pavement system.
+• Maintenance and upgradation of
+docks, harbors, airports, railway
+system based on requirements,
+population growth is a part of this
+discipline.
+
+Deals with Transportation system
+Planning And high way material design
+
+Roads, Bridges & Dams
+
+Road
+• A road is an identifiable route, way or path
+between two or more places
+• Roads are typically smoothed, paved, or
+otherwise prepared to allow easy travel
+• A "road" was simply any pathway fit for riding.
+• The United States has the largest network of
+roadways of any single country in the world with
+6,430,366 km (2005).
+• India has the second largest road system in the
+world with 3,383,344 km (2002).
+• People's Republic of China is third with
+1,870,661 km of roadway (2004).
+
+Classification of Roads
+• Based on Size
+– Single, Double, Four, Six Lane Roads etc.
+
+• Based on (Nagpur Road Plan) national
+principles
+– National Highways
+– State Highways
+– Major District Roads
+– Minor & Other District Roads
+– Village Roads
+
+• Based on type of road surface
+– Bituminous Road
+– Concrete Road
+– Water bound macadam road
+– Mud Road
+
+Components of Road
+• Carriageway
+• Berm / Kerb
+• Drain
+• Shoulder
+• Footpath
+• Cycle Track
+
+Wearing Course
+Surface Course
+Base Course
+Sub Base Course
+Natural Subgrade
+
+Bridges
+• A bridge is a structure built to span a gorge, valley, road,
+railroad track, river, body of water, or any other physical
+obstacle.
+• A bridge is designed for trains, pedestrian or road traffic, a
+pipeline or waterway for water transport or barge traffic.
+• An aqueduct is a bridge that carries water, resembling a
+viaduct, which is a bridge that connects points of equal height.
+• A road-rail bridge carries both road and rail traffic.
+• A bridge's structural efficiency may be considered to be the
+ratio of load carried to bridge mass, given a specific set of
+material types.
+• A bridge's economic efficiency will be site and traffic
+dependent, the ratio of savings by having a bridge (instead of,
+for example, a ferry, or a longer road route) compared to its
+cost.
+
+Classification of Bridges
+Based on Action
+• Beam bridges
+• Cantilever bridges
+• Arch bridges
+• Suspension bridges
+• Cable-stayed bridges
+• Truss bridges
+
+Classification of Bridges
+Based on Material used
+• Concrete Bridge
+• Steel Bridge
+• Timber Bridge
+• Composite Bridge
+
+Classification of Bridges
+Based on purpose
+• Road Bridge
+• Rail Bridge
+• Rail & Road Bridge
+• Pedestrian Bridge
+• Aqueduct
+
+Classification of Bridges
+Based on type of Support
+• Simply Supported Bridges
+• Continuous Bridges
+• Fixed Bridges
+• Cantilever Bridges
+
+Components of Bridge
+1. Caisson/Raft
+Foundation
+2. Bridge Pier
+3. Bearing
+4. Deck Slab
+5. Roadway
+6. Railing
+7. Abutment
+
+6
+4
+
+3
+7
+
+2
+
+7
+
+1
+
+1
+
+1
+
+Arch Bridge
+
+Beam Bridge
+
+Cable Stayed Bridge
+
+Cantilever Bridge
+
+The Basic Bridge Types
+
+Beam / Girder Bridge
+
+Arch Bridge
+
+Truss Bridge
+
+Cable Stayed Bridge
+
+Rigid Frame Bridge
+
+Suspension Bridge
+
+GIRDER BRIDGE
+
+Typical Span Lengths
+10m - 200m
+World's Longest
+Ponte Costa e Silva, Brazil
+
+Namihaya Bridge, Osaka, Japan
+
+Total Length
+
+700m
+
+Center Span
+
+300m
+
+ARCH BRIDGE
+
+Typical Span Lengths
+40m - 150m
+World's Longest
+New River Gorge Bridge, U.S.A.
+
+Meiwa Bridge, Edogawa-Ku, Tokyo
+
+Total Length
+
+924m
+
+Center Span
+
+518m
+
+TRUSS BRIDGE
+
+Typical Span Lengths
+40m - 500m
+World's Longest
+Pont de Quebec
+
+2nd Mameyaki Bridge, Saitama, Japan
+
+Total Length
+
+863m
+
+Center Span
+
+549m
+
+Cable Stayed Bridge
+
+Pylon
+Typical Span Lengths
+110m - 480m
+World's Longest
+Tatara Bridge, Japan
+
+Tsurumi Tsubasa Bridge
+
+Total Length
+
+1,480m
+
+Center Span
+
+890m
+
+Suspension Bridge
+
+Typical Span Lengths
+
+Ohnaruto Bridge
+
+70m - 1,000m+
+Pylon
+
+World's Longest
+Akashi Kaikyo Bridge, Japan
+
+Hakucho Bridge
+
+Total Length
+
+3,911m
+
+Center Span
+
+1,991m
+
+Types of Bridges
+
+Types of supports
+
+Beam/Girder Bridge
+
+Culverts are smaller bridges, normally with one span built
+across small streams, drains or sewer carrying road on top
+
+Dam
+• Barrier that stores water at two levels.
+• The primary purpose of dam is to store
+water whenever available in plenty for use
+during scarcity.
+• Built across rivers
+• Excess water is released to river and
+useful water is transferred thro canals
+
+Components of Dam
+• Body of Dam
+• Foundation
+• Top road
+• Gates and lifting devices
+• Spill way or Sluice
+• Canal
+• Reservoir
+• Main river course
+• Stilling Basin
+• Drainage gallery
+
+Components & Forces in Dams
+Gate
+
+Upstream
+
+Down Stream
+
+Spill Way
+Reservoir
+Water
+
+Dam Body
+
+Drainage Gallery
+Sluice gate
+
+Foundation
+
+Stilling Basin
+
+Foundation Soil
+
+Plan of Dam
+Upstream
+Abutment
+
+Downstream
+Left Bank Canal
+
+Main River Course
+Reservoir
+
+Abutment
+
+Right bank Canal
+
+FUNCTIONS OF DAMS
+Function
+
+Example
+
+Power
+generation
+
+Hydroelectric power is a major source of electricity in the world.
+many countries have rivers with adequate water flow, that can be
+dammed for power generation purposes. For eg, the Itaipu on the
+Paraná River in South America generates 14 GW and supplied
+93% of the energy consumed by Paraguay and 20% of that
+consumed by Brazil as of 2005.
+
+Stabilize
+water flow /
+irrigation
+
+Dams are often used to control and stabilize water flow, for
+agricultural purposes and irrigation. They can help to stabilize or
+restore the water levels of inland lakes and seas. They store water
+for drinking and other direct human needs,
+
+Flood
+prevention
+
+Dams are created for flood control.
+
+Land
+reclamation
+
+Dams (often called dykes or levees) are used to prevent ingress of
+water to an area that would otherwise be submerged, allowing its
+reclamation for human use.
+
+Water
+diversion
+
+Dams are used for the purpose of diversion.
+
+Classification of Dams
+• Based on Size
+• Based on function
+• Based on material used
+
+Classification based on Size
+• Small Dam (<10 m high)
+• Medium size Dam (10 – 25 m
+high)
+• Large Dam (>25 m high)
+• Major Dam (>150 m high)
+
+Classification based on Purpose
+• Hydro-electric dam
+• Irrigation dam
+• Water supply dam for city for the purposes of
+drinking water, recreation, navigation thro
+canals, industrial use.
+• Flood Control
+• Habitat dam for fishes & wild life
+• Effluent containing dams from industry, mine,
+factory etc.
+• Multi-purpose dam
+
+Classification based on Material of
+construction
+• Masonry Dam
+• Concrete Dam
+• Timber Dam
+• Steel Dam
+• Earth Dam
+• Rockfill Dam
+• Composite Dam
+
+Classification based on action
+• Gravity Dam
+• Arch Dam
+• Saddle Dam
+• Check Dam
+• Diversion Dam
+• Overflow Dam
+• Cofferdam
+
+Gravity Dam
+
+Timber Dam
+
+San Luis Dam near Los Bonos,
+California – an Embankment Dam
+
+Steel Dam
+
+Cofferdam
+
+Power generation Plant
+
+Spillway
+Hoover Arch Dam
+
+Timber Dam
+
+Steel Dam
+
+Rockfill Dam
+
+Arch Dam
+Solid Gravity Dam
+
+Combined Earth & Rockfill Dam
+
+Earth Dam
+
+Infrastructure
+
+Infrastructure
+Interstate 80, the second-longest U.S.
+Interstate highway, runs from
+California to New Jersey
+
+•Infrastructure is the framework of supporting system consisting of roads,
+airports, bridges, buildings, parks and other amenities for the comfort of
+mankind.
+•Economically, infrastructure are the structural elements that allow for
+production of goods and services without themselves being part of the
+production process, e.g. roads allow the transport of raw materials and
+finished products.
+•The word is a combination of "infra" and "structure". The term came to
+prominence in the United States in the 1980s following the publication of
+America in Ruins (Choate and Walter, 1981), which initiated discussion of the
+nation’s "infrastructure crisis" caused by inadequate investment and poor
+maintenance of public works.
+
+Infrastructure deals with
+• Transportation
+– Road Network
+– Railway
+– Ports & Harbors
+– Air travel and Airports
+
+• Television Network
+• Telephone Network
+– Landline connections
+– Mobile phone connections
+
+• Energy Sector
+– Electrification
+– Reduction in energy loss
+– Use of renewable energy such as Solar, Wind, Biogas plants
+
+• Agricultural Activity
+– Largest economic investment
+
+• Construction Activity
+– Second largest economy in India
+– Lifelines
+
+India’s Infrastructure policy
+• Additional power generation capacity of about 70,000 MW
+• Construction of Dedicated Freight Corridors between Mumbai and
+Delhi, and Ludhiana and Kolkata
+• Capacity addition of 485 million MT in major ports, 345 million MT
+in minor ports
+• Modernisation and redevelopment of 21 railway stations
+• Development of 16 million hectares through major, medium and
+minor irrigation works
+• Modernisation and redevelopment of 4 metro and 35 non-metro
+airports
+• Six-laning 6,500 km of Golden Quadrilateral and selected National
+Highways
+• Construction of 1,65,244 km of new rural roads, and renewing and
+upgrading existing 1,92,464 km covering 78,304 rural habitations
+• Infrastructure growth at 15 % P.A
+• Construction sector to be the biggest beneficiary. Second largest
+after agriculture, 11% of Gross Domestic Product (GDP) & 50 % of
+Gross Fixed Capital Formation (GFCF), 65 % of total investment
+
+Why infrastructure growth ?
+• Political will
+• Funding from multi-lateral agencies such as
+ADB, World Bank, Japan Bank etc.
+• Increased private participation
+• Innovative modes of funding
+– Cess on petrol & diesel
+– Special tax on air travel
+– Levying tonnage tax on ships
+– Infrastructure tax in Bangalore
+
+• Build Operate Transfer (BOT) projects
+
+Recent Statistics about Indian Infrastructural progress
+
+Impact of infrastructural
+development of a country
+• Increase in food production
+• Protection from drought, famine, flood
+• Healthy and comfortable housing facility
+• Safe domestic and industrial water supply
+• Safe and scientific waste disposal
+• Improvement in communication and
+transportation
+• Generation of electricity from, nuclear, hydel,
+thermal, solar or wind energy
+• Improved, wealth, prosperity, standard of living
+• Overall growth of a nation
+
+Impact of infrastructural facility on
+socio-economic growth of a nation
+• Large scale budget allocation for infrastructure
+leads to agricultural and industrial
+developments.
+• Provide employment, eradicates poverty and
+enhances per capita income.
+• Urban growth only can lead to population drift
+from rural sectors leading to explosion in
+population in cities and inadequate development
+of villages and improper care for agricultural
+sector.
+• Use of infarstructural facility only by upper class
+leads to imbalance.
+
+Role of Civil engineers in
+Infrastructural development
+• Construction of roads, railway, ports, harbors
+and airports
+• Construction of dams and proper utilization of
+water resources.
+• Construction of Housing, commercial and
+industrial complexes
+• Maintenance of facility
+• Rebuilding, Rehabilitation, Retrofitting and
+Repair
+
+Road development
+• Golden Quadrilateral – 6000 km (New Delhi, Kolkata,
+Chennai & Mumbai)
+• North-South & East-West (NSEW) corridor – 7300 km
+(Srinagar-Kanyakumari, Silchar-Porbandar)
+• Port connectivity & other projects
+• Pradhana Mantri Bharath Jodo Pariyojana – 10000 km
+• Pradhana Mantri Grameena Sadak Yojana – connectivity to
+160000 rural habitation
+India’s Road Infrastructure (May 05)
+
+Road Projects under execution
+
+Port Development
+
+Foreign Direct Investment Growth in Real Estate
+
+Airports – Ready to take off
+• Upsurge in air traffic
+• Upgradation of Metro city airports
+• Development of new airports
+
+Special Economic Zones – mushrooming across India
+
+Mixture of Technological growth &
+raw rural strength, blend of western
+& traditional culture
+
+Assignment
+1. What is Civil Engineering? What are the main functions of a civil engineer?
+2. List the main disciplines of civil engineering and mention the purpose and
+application of each discipline.
+3. What is infrastructure? How does it relate with civil engineering?
+4. What is the influence of infrastructural growth on the development of a
+country?
+5. Draw a neat sketch of road cross section and list the components of road.
+Mention the use of each component
+6. Classify the roads according to different classification systems.
+7. Draw a neat sketch of a dam and label its parts. Mention the use of each
+component.
+8. Classify the dams according to different classification systems.
+9. What are the functions of roads, bridges & dams
+10. Draw a neat sketch of a bridge and label its parts. Mention the use of each
+component.
+11. Classify the bridges according to different classification systems.
+
+

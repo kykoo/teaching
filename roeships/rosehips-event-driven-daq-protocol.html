@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ROSEHIPS Event-driven DAQ protocol</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="rosehips-event-driven-daq-protocol_files/libs/clipboard/clipboard.min.js"></script>
+<script src="rosehips-event-driven-daq-protocol_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="rosehips-event-driven-daq-protocol_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="rosehips-event-driven-daq-protocol_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="rosehips-event-driven-daq-protocol_files/libs/quarto-html/popper.min.js"></script>
+<script src="rosehips-event-driven-daq-protocol_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="rosehips-event-driven-daq-protocol_files/libs/quarto-html/anchor.min.js"></script>
+<link href="rosehips-event-driven-daq-protocol_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="rosehips-event-driven-daq-protocol_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="rosehips-event-driven-daq-protocol_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="rosehips-event-driven-daq-protocol_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="rosehips-event-driven-daq-protocol_files/libs/bootstrap/bootstrap-9b2b39172b51de906ea9faad4e4656e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a></li>
+  <li><a href="#scope-and-conventions" id="toc-scope-and-conventions" class="nav-link" data-scroll-target="#scope-and-conventions"><span class="header-section-number">2</span> Scope and Conventions</a></li>
+  <li><a href="#system-model" id="toc-system-model" class="nav-link" data-scroll-target="#system-model"><span class="header-section-number">3</span> System Model</a>
+  <ul class="collapse">
+  <li><a href="#node-identifiers" id="toc-node-identifiers" class="nav-link" data-scroll-target="#node-identifiers"><span class="header-section-number">3.1</span> Node identifiers</a></li>
+  </ul></li>
+  <li><a href="#part-i.-charge-controller-protocol" id="toc-part-i.-charge-controller-protocol" class="nav-link" data-scroll-target="#part-i.-charge-controller-protocol"><span class="header-section-number">4</span> Part I. Charge-Controller Protocol</a>
+  <ul class="collapse">
+  <li><a href="#applicability" id="toc-applicability" class="nav-link" data-scroll-target="#applicability"><span class="header-section-number">4.1</span> Applicability</a></li>
+  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics"><span class="header-section-number">4.2</span> Topics</a></li>
+  <li><a href="#payload-fields-and-identifiers" id="toc-payload-fields-and-identifiers" class="nav-link" data-scroll-target="#payload-fields-and-identifiers"><span class="header-section-number">4.3</span> Payload fields and identifiers</a></li>
+  <li><a href="#desired-state-examples" id="toc-desired-state-examples" class="nav-link" data-scroll-target="#desired-state-examples"><span class="header-section-number">4.4</span> Desired-state examples</a></li>
+  <li><a href="#charge-controller-behavior" id="toc-charge-controller-behavior" class="nav-link" data-scroll-target="#charge-controller-behavior"><span class="header-section-number">4.5</span> Charge-controller behavior</a></li>
+  <li><a href="#raspberry-pi-behavior" id="toc-raspberry-pi-behavior" class="nav-link" data-scroll-target="#raspberry-pi-behavior"><span class="header-section-number">4.6</span> Raspberry Pi behavior</a></li>
+  <li><a href="#report-examples" id="toc-report-examples" class="nav-link" data-scroll-target="#report-examples"><span class="header-section-number">4.7</span> Report examples</a></li>
+  <li><a href="#sequence-summary" id="toc-sequence-summary" class="nav-link" data-scroll-target="#sequence-summary"><span class="header-section-number">4.8</span> Sequence summary</a></li>
+  </ul></li>
+  <li><a href="#part-ii.-accelerometer-and-wind-node-protocol" id="toc-part-ii.-accelerometer-and-wind-node-protocol" class="nav-link" data-scroll-target="#part-ii.-accelerometer-and-wind-node-protocol"><span class="header-section-number">5</span> Part II. Accelerometer and Wind Node Protocol</a>
+  <ul class="collapse">
+  <li><a href="#applicability-1" id="toc-applicability-1" class="nav-link" data-scroll-target="#applicability-1"><span class="header-section-number">5.1</span> Applicability</a></li>
+  <li><a href="#topics-1" id="toc-topics-1" class="nav-link" data-scroll-target="#topics-1"><span class="header-section-number">5.2</span> Topics</a></li>
+  <li><a href="#payload-fields-and-identifiers-1" id="toc-payload-fields-and-identifiers-1" class="nav-link" data-scroll-target="#payload-fields-and-identifiers-1"><span class="header-section-number">5.3</span> Payload fields and identifiers</a></li>
+  <li><a href="#schedule-publication-rules" id="toc-schedule-publication-rules" class="nav-link" data-scroll-target="#schedule-publication-rules"><span class="header-section-number">5.4</span> Schedule publication rules</a></li>
+  <li><a href="#window-payload-examples" id="toc-window-payload-examples" class="nav-link" data-scroll-target="#window-payload-examples"><span class="header-section-number">5.5</span> Window payload examples</a></li>
+  <li><a href="#node-behavior" id="toc-node-behavior" class="nav-link" data-scroll-target="#node-behavior"><span class="header-section-number">5.6</span> Node behavior</a></li>
+  <li><a href="#validity-rules" id="toc-validity-rules" class="nav-link" data-scroll-target="#validity-rules"><span class="header-section-number">5.7</span> Validity rules</a></li>
+  <li><a href="#report-examples-1" id="toc-report-examples-1" class="nav-link" data-scroll-target="#report-examples-1"><span class="header-section-number">5.8</span> Report examples</a></li>
+  <li><a href="#sequence-summary-1" id="toc-sequence-summary-1" class="nav-link" data-scroll-target="#sequence-summary-1"><span class="header-section-number">5.9</span> Sequence summary</a></li>
+  </ul></li>
+  <li><a href="#version-1-profile" id="toc-version-1-profile" class="nav-link" data-scroll-target="#version-1-profile"><span class="header-section-number">6</span> Version 1 Profile</a></li>
+  <li><a href="#sec-qos1" id="toc-sec-qos1" class="nav-link" data-scroll-target="#sec-qos1"><span class="header-section-number">7</span> Appendix. MQTT QoS 1 Semantics</a></li>
+  <li><a href="#sec-broker-access" id="toc-sec-broker-access" class="nav-link" data-scroll-target="#sec-broker-access"><span class="header-section-number">8</span> Appendix. Broker Access Example</a>
+  <ul class="collapse">
+  <li><a href="#python-command-publisher-script" id="toc-python-command-publisher-script" class="nav-link" data-scroll-target="#python-command-publisher-script"><span class="header-section-number">8.1</span> Python command-publisher script</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ROSEHIPS Event-driven DAQ protocol</h1>
+<p class="subtitle lead">ver 1</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="overview" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1</span> Overview</h2>
+<p>This document defines an MQTT-based, event-driven DAQ protocol for ROSEHIPS HGM-monitoring deployments. The protocol specifies how the cloud control service, charge controllers, Raspberry Pi camera hosts, accelerometer nodes, and wind nodes communicate through an MQTT broker.</p>
+<p>The protocol supports multiple deployments at any given time. Each deployment is addressed independently and is orchestrated by the cloud control service.</p>
+<p>A deployment is one fielded ROSEHIPS DAQ system installed to monitor an HGM. It may contain:</p>
+<ul>
+<li><code>n</code> camera subsystems, each composed of a charge controller, a Raspberry Pi, and a camera</li>
+<li><code>m</code> accelerometer nodes</li>
+<li><code>k</code> wind nodes</li>
+</ul>
+<p>The protocol uses two control patterns:</p>
+<ol type="1">
+<li>Ground Nodes: Charge controllers are always online and respond to retained desired-state MQTT messages.</li>
+<li>Mast Nodes: Accelerometer and wind nodes are normally asleep, wake periodically, and consume retained 3-hour DAQ-window MQTT messages.</li>
+</ol>
+<p>The control service is a cloud-hosted service outside the field deployment. For each deployment, it evaluates current and forecast wind speed and direction, then publishes retained MQTT commands and schedules that tell field nodes when to start DAQ, stop DAQ, or remain idle.</p>
+<p>The protocol is intended to be:</p>
+<ul>
+<li>event-driven</li>
+<li>explicit about time windows</li>
+<li>robust to MQTT retransmission and retained-message replay</li>
+<li>compatible with low-duty-cycle sleeping nodes</li>
+<li>auditable from broker traffic and node reports</li>
+</ul>
+<p>A MQTT server is available for ROSEHIPS Project. See <a href="#sec-broker-access">MQTT Broker Access Example</a> for details.</p>
+</section>
+<section id="scope-and-conventions" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="scope-and-conventions"><span class="header-section-number">2</span> Scope and Conventions</h2>
+<ul>
+<li>All timestamps shall use UTC in ISO 8601 format, for example <code>2026-04-02T03:00:00Z</code>.</li>
+<li>All command and report topics should use MQTT QoS 1 (see <a href="#sec-qos1">appendix</a>).</li>
+<li>Topics consumed by sleeping nodes shall be retained.</li>
+<li>Each command or schedule shall carry a unique identifier.</li>
+<li>Nodes shall treat repeated receipt of the same identifier as a duplicate and shall not repeat hardware side effects.</li>
+<li>Each node shall publish sufficient reports for the control service to reconstruct the executed DAQ state.</li>
+</ul>
+</section>
+<section id="system-model" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="system-model"><span class="header-section-number">3</span> System Model</h2>
+<p>There can be multiple deployments at any given time. Each deployment is addressed independently through <code>set_id</code>.</p>
+<p>A deployment may provision <code>n</code> camera subsystems, <code>m</code> accelerometer nodes, and <code>k</code> wind nodes, where <code>n</code>, <code>m</code>, and <code>k</code> are deployment-specific and are not fixed by this protocol.</p>
+<p>Example deployment identifiers are:</p>
+<ul>
+<li><code>set1</code></li>
+<li><code>set2</code></li>
+<li><code>set3</code></li>
+</ul>
+<section id="node-identifiers" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="node-identifiers"><span class="header-section-number">3.1</span> Node identifiers</h3>
+<p>Camera subsystem identifiers are deployment-specific and are not bounded by this protocol.</p>
+<p>Example camera-subsystem <code>node_id</code> values are:</p>
+<ul>
+<li><code>camera1</code></li>
+<li><code>camera2</code></li>
+<li><code>cameraN</code></li>
+</ul>
+<p>Accelerometer and wind node identifiers are deployment-specific and are not bounded by this protocol.</p>
+<p>Example accelerometer <code>node_id</code> values are:</p>
+<ul>
+<li><code>acc1</code></li>
+<li><code>acc2</code></li>
+<li><code>acc3</code></li>
+<li><code>accM</code></li>
+</ul>
+<p>Example wind-node <code>node_id</code> values are:</p>
+<ul>
+<li><code>wnd1</code></li>
+<li><code>wnd2</code></li>
+<li><code>wndK</code></li>
+</ul>
+</section>
+</section>
+<section id="part-i.-charge-controller-protocol" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="part-i.-charge-controller-protocol"><span class="header-section-number">4</span> Part I. Charge-Controller Protocol</h2>
+<section id="applicability" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="applicability"><span class="header-section-number">4.1</span> Applicability</h3>
+<p>This part applies to the always-online charge controllers that power the camera subsystems and to the Raspberry Pi hosts connected to those charge controllers. A deployment may contain <code>n</code> such subsystems, where <code>n</code> is deployment-specific and may be zero.</p>
+</section>
+<section id="topics" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="topics"><span class="header-section-number">4.2</span> Topics</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 22%">
+<col style="width: 24%">
+<col style="width: 20%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Publisher</th>
+<th style="text-align: left;">Subscriber</th>
+<th style="text-align: left;">Retained</th>
+<th style="text-align: left;">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>rosehips/&lt;set_id&gt;/camera/&lt;node_id&gt;/daq/desired</code></td>
+<td style="text-align: left;">control service</td>
+<td style="text-align: left;">charge controller, Raspberry Pi</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">Desired DAQ state for the camera subsystem</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>rosehips/&lt;set_id&gt;/camera/&lt;node_id&gt;/controller/report</code></td>
+<td style="text-align: left;">charge controller</td>
+<td style="text-align: left;">control service</td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">Relay, external-power, and shutdown-timeout reports</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>rosehips/&lt;set_id&gt;/camera/&lt;node_id&gt;/rpi/report</code></td>
+<td style="text-align: left;">Raspberry Pi</td>
+<td style="text-align: left;">control service, charge controller</td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">Pi-side DAQ, shutdown, and inconsistent-state reports</td>
+</tr>
+</tbody>
+</table>
+<p>For this part, <code>&lt;node_id&gt;</code> identifies one provisioned camera subsystem. Topics shall be published only for camera subsystems that are actually provisioned in the deployment.</p>
+<p>In this part, the control service is the cloud-hosted orchestrator for the deployment. Its retained <code>daq/desired</code> publications are the output of a wind-informed decision process that considers current and forecast wind speed and direction when deciding whether camera DAQ should start or stop.</p>
+</section>
+<section id="payload-fields-and-identifiers" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="payload-fields-and-identifiers"><span class="header-section-number">4.3</span> Payload fields and identifiers</h3>
+<p>All charge-controller commands and reports shall carry:</p>
+<ul>
+<li><code>protocol_version</code></li>
+<li><code>set_id</code></li>
+<li><code>node_class</code></li>
+<li><code>node_id</code></li>
+<li><code>published_at</code></li>
+<li><code>command_id</code> for desired-state commands</li>
+<li><code>session_id</code> for correlation of one DAQ run across all related messages</li>
+</ul>
+<p><code>command_id</code> identifies one desired-state publication. <code>session_id</code> identifies the DAQ run that the start command, stop command, Raspberry Pi reports, and controller reports all belong to. A repeated message with the same <code>command_id</code> shall be treated as a duplicate. A changed <code>session_id</code> shall be treated as a new DAQ run.</p>
+</section>
+<section id="desired-state-examples" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="desired-state-examples"><span class="header-section-number">4.4</span> Desired-state examples</h3>
+<p>Start example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"protocol_version"</span><span class="fu">:</span> <span class="st">"1.0"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"set_id"</span><span class="fu">:</span> <span class="st">"set1"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_class"</span><span class="fu">:</span> <span class="st">"camera"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_id"</span><span class="fu">:</span> <span class="st">"camera2"</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"command_id"</span><span class="fu">:</span> <span class="st">"camera2-cmd-20260402T120000Z"</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"session_id"</span><span class="fu">:</span> <span class="st">"session-20260402-1200"</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"desired_state"</span><span class="fu">:</span> <span class="st">"start_daq"</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"published_at"</span><span class="fu">:</span> <span class="st">"2026-04-02T12:00:00Z"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Stop example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"protocol_version"</span><span class="fu">:</span> <span class="st">"1.0"</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"set_id"</span><span class="fu">:</span> <span class="st">"set1"</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_class"</span><span class="fu">:</span> <span class="st">"camera"</span><span class="fu">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_id"</span><span class="fu">:</span> <span class="st">"camera2"</span><span class="fu">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"command_id"</span><span class="fu">:</span> <span class="st">"camera2-cmd-20260402T153000Z"</span><span class="fu">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"session_id"</span><span class="fu">:</span> <span class="st">"session-20260402-1200"</span><span class="fu">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"desired_state"</span><span class="fu">:</span> <span class="st">"stop_daq"</span><span class="fu">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"published_at"</span><span class="fu">:</span> <span class="st">"2026-04-02T15:30:00Z"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="charge-controller-behavior" class="level3" data-number="4.5">
+<h3 data-number="4.5" class="anchored" data-anchor-id="charge-controller-behavior"><span class="header-section-number">4.5</span> Charge-controller behavior</h3>
+<p>When a charge controller receives <code>desired_state = start_daq</code>:</p>
+<ol type="1">
+<li>If <code>command_id</code> has already been handled, it shall ignore the duplicate.</li>
+<li>If external power is off, it shall enable the relay and power the Raspberry Pi.</li>
+<li>It shall publish a controller report that external power has been applied.</li>
+<li>It shall NOT repeatedly power-cycle the subsystem for duplicate retained messages belonging to the same <code>session_id</code>.</li>
+</ol>
+<p>When a charge controller receives <code>desired_state = stop_daq</code>:</p>
+<ol type="1">
+<li>It shall NOT cut relay power immediately.</li>
+<li>It shall wait up to 5 minutes for either <code>shutdown_started</code> or <code>inconsistent_state_shutdown_started</code> on <code>rosehips/&lt;set_id&gt;/camera/&lt;node_id&gt;/rpi/report</code>.</li>
+<li>If either event is received for the active <code>session_id</code>, it shall wait (n: Miaomin, what would be good for this?) seconds.</li>
+<li>If neither event is received within 5 minutes, it shall publish a controller report with <code>event = "shutdown_timeout"</code>.</li>
+<li>It shall then turn the relay off.</li>
+<li>It shall publish a controller report that external power has been removed.</li>
+</ol>
+</section>
+<section id="raspberry-pi-behavior" class="level3" data-number="4.6">
+<h3 data-number="4.6" class="anchored" data-anchor-id="raspberry-pi-behavior"><span class="header-section-number">4.6</span> Raspberry Pi behavior</h3>
+<p>When the Raspberry Pi sees <code>desired_state = start_daq</code> for a new <code>session_id</code>:</p>
+<ol type="1">
+<li>It shall start the camera DAQ process.</li>
+<li>It shall publish a report confirming DAQ start.</li>
+</ol>
+<p>When the Raspberry Pi sees <code>desired_state = stop_daq</code> for the active <code>session_id</code>:</p>
+<ol type="1">
+<li>It shall stop DAQ cleanly.</li>
+<li>It shall publish <code>shutdown_started</code>.</li>
+<li>It shall shut the operating system down.</li>
+</ol>
+<p>If the Raspberry Pi boots or wakes, reads retained <code>desired_state = stop_daq</code>, and finds that the referenced DAQ session is not running locally:</p>
+<ol type="1">
+<li>It shall publish <code>inconsistent_state_shutdown_started</code>.</li>
+<li>It shall shut the operating system down.</li>
+</ol>
+</section>
+<section id="report-examples" class="level3" data-number="4.7">
+<h3 data-number="4.7" class="anchored" data-anchor-id="report-examples"><span class="header-section-number">4.7</span> Report examples</h3>
+<p>Charge-controller report:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"protocol_version"</span><span class="fu">:</span> <span class="st">"1.0"</span><span class="fu">,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"set_id"</span><span class="fu">:</span> <span class="st">"set1"</span><span class="fu">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_class"</span><span class="fu">:</span> <span class="st">"camera"</span><span class="fu">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_id"</span><span class="fu">:</span> <span class="st">"camera2"</span><span class="fu">,</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"session_id"</span><span class="fu">:</span> <span class="st">"session-20260402-1200"</span><span class="fu">,</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"event"</span><span class="fu">:</span> <span class="st">"relay_power_on"</span><span class="fu">,</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"published_at"</span><span class="fu">:</span> <span class="st">"2026-04-02T12:00:02Z"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Charge-controller timeout report:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"protocol_version"</span><span class="fu">:</span> <span class="st">"1.0"</span><span class="fu">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"set_id"</span><span class="fu">:</span> <span class="st">"set1"</span><span class="fu">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_class"</span><span class="fu">:</span> <span class="st">"camera"</span><span class="fu">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_id"</span><span class="fu">:</span> <span class="st">"camera2"</span><span class="fu">,</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"session_id"</span><span class="fu">:</span> <span class="st">"session-20260402-1200"</span><span class="fu">,</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"event"</span><span class="fu">:</span> <span class="st">"shutdown_timeout"</span><span class="fu">,</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"published_at"</span><span class="fu">:</span> <span class="st">"2026-04-02T15:35:00Z"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Raspberry Pi report:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"protocol_version"</span><span class="fu">:</span> <span class="st">"1.0"</span><span class="fu">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"set_id"</span><span class="fu">:</span> <span class="st">"set1"</span><span class="fu">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_class"</span><span class="fu">:</span> <span class="st">"camera"</span><span class="fu">,</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_id"</span><span class="fu">:</span> <span class="st">"camera2"</span><span class="fu">,</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"session_id"</span><span class="fu">:</span> <span class="st">"session-20260402-1200"</span><span class="fu">,</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"event"</span><span class="fu">:</span> <span class="st">"shutdown_started"</span><span class="fu">,</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"published_at"</span><span class="fu">:</span> <span class="st">"2026-04-02T15:30:08Z"</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Raspberry Pi inconsistent-state report:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"protocol_version"</span><span class="fu">:</span> <span class="st">"1.0"</span><span class="fu">,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"set_id"</span><span class="fu">:</span> <span class="st">"set1"</span><span class="fu">,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_class"</span><span class="fu">:</span> <span class="st">"camera"</span><span class="fu">,</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_id"</span><span class="fu">:</span> <span class="st">"camera2"</span><span class="fu">,</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"session_id"</span><span class="fu">:</span> <span class="st">"session-20260402-1200"</span><span class="fu">,</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"event"</span><span class="fu">:</span> <span class="st">"inconsistent_state_shutdown_started"</span><span class="fu">,</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"published_at"</span><span class="fu">:</span> <span class="st">"2026-04-02T15:30:10Z"</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="sequence-summary" class="level3" data-number="4.8">
+<h3 data-number="4.8" class="anchored" data-anchor-id="sequence-summary"><span class="header-section-number">4.8</span> Sequence summary</h3>
+<p>Start sequence:</p>
+<ol type="1">
+<li>The control service determines from current and forecast wind speed and direction that camera DAQ should begin, then publishes retained <code>desired_state = start_daq</code>.</li>
+<li>The charge controller applies relay power to the Raspberry Pi.</li>
+<li>The Raspberry Pi boots, reads retained desired state, and starts DAQ.</li>
+<li>The Raspberry Pi publishes <code>daq_started</code>.</li>
+</ol>
+<p>Stop sequence:</p>
+<ol type="1">
+<li>The control service determines from current and forecast wind speed and direction that camera DAQ should stop, then publishes retained <code>desired_state = stop_daq</code>.</li>
+<li>The Raspberry Pi stops DAQ and publishes <code>shutdown_started</code>.</li>
+<li>The charge controller waits (n: Miaomin, what would be good for this?) seconds.</li>
+<li>The charge controller removes relay power and publishes <code>relay_power_off</code>.</li>
+</ol>
+<p>Retained-stop wake sequence:</p>
+<ol type="1">
+<li>The control service publishes retained <code>desired_state = stop_daq</code>.</li>
+<li>The Raspberry Pi boots or wakes, reads the retained desired state, and finds that the referenced DAQ session is not running locally.</li>
+<li>The Raspberry Pi publishes <code>inconsistent_state_shutdown_started</code>.</li>
+<li>The Raspberry Pi shuts down.</li>
+<li>The charge controller waits 180 seconds.</li>
+<li>The charge controller removes relay power and publishes <code>relay_power_off</code>.</li>
+</ol>
+<p>Stop-timeout sequence:</p>
+<ol type="1">
+<li>The control service publishes retained <code>desired_state = stop_daq</code>.</li>
+<li>If the Raspberry Pi does not publish either <code>shutdown_started</code> or <code>inconsistent_state_shutdown_started</code> within 5 minutes, the charge controller publishes <code>shutdown_timeout</code>.</li>
+<li>The charge controller removes relay power and publishes <code>relay_power_off</code>.</li>
+</ol>
+</section>
+</section>
+<section id="part-ii.-accelerometer-and-wind-node-protocol" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="part-ii.-accelerometer-and-wind-node-protocol"><span class="header-section-number">5</span> Part II. Accelerometer and Wind Node Protocol</h2>
+<section id="applicability-1" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="applicability-1"><span class="header-section-number">5.1</span> Applicability</h3>
+<p>This part applies to the periodically waking accelerometer and wind nodes. A deployment may contain <code>m</code> accelerometer nodes and <code>k</code> wind nodes, where <code>m</code> and <code>k</code> are deployment-specific and may be zero.</p>
+</section>
+<section id="topics-1" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="topics-1"><span class="header-section-number">5.2</span> Topics</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 22%">
+<col style="width: 24%">
+<col style="width: 20%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Publisher</th>
+<th style="text-align: left;">Subscriber</th>
+<th style="text-align: left;">Retained</th>
+<th style="text-align: left;">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>rosehips/&lt;set_id&gt;/&lt;class&gt;/&lt;node_id&gt;/daq/window</code></td>
+<td style="text-align: left;">control service</td>
+<td style="text-align: left;">accelerometer or wind node</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">DAQ plan for the next 3 h window</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>rosehips/&lt;set_id&gt;/&lt;class&gt;/&lt;node_id&gt;/daq/report</code></td>
+<td style="text-align: left;">accelerometer or wind node</td>
+<td style="text-align: left;">control service</td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">Wake, schedule, DAQ start, DAQ stop, and sleep reports</td>
+</tr>
+</tbody>
+</table>
+<p>In these topics, <code>&lt;class&gt;</code> shall be <code>acc</code> or <code>wnd</code>. Topics shall be published only for nodes that are actually provisioned in the deployment.</p>
+<p>The same cloud-hosted control service produces these retained 3-hour schedules. It uses current and forecast wind speed and direction to decide whether each upcoming window should contain a DAQ run or explicitly publish <code>plan_type = none</code>.</p>
+</section>
+<section id="payload-fields-and-identifiers-1" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="payload-fields-and-identifiers-1"><span class="header-section-number">5.3</span> Payload fields and identifiers</h3>
+<p>All accelerometer and wind schedule messages and reports shall carry:</p>
+<ul>
+<li><code>protocol_version</code></li>
+<li><code>set_id</code></li>
+<li><code>node_class</code></li>
+<li><code>node_id</code></li>
+<li><code>published_at</code></li>
+<li><code>schedule_id</code> for the published 3-hour DAQ window</li>
+<li><code>session_id</code> when the window contains an actual DAQ run</li>
+</ul>
+<p><code>schedule_id</code> identifies one published 3-hour DAQ window. <code>session_id</code> identifies the DAQ run within that window and shall be reused unchanged by node reports associated with that run. A repeated message with the same <code>schedule_id</code> shall be treated as a duplicate.</p>
+</section>
+<section id="schedule-publication-rules" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="schedule-publication-rules"><span class="header-section-number">5.4</span> Schedule publication rules</h3>
+<p>For each deployment and provisioned node, the control service shall evaluate current and forecast wind speed and direction before deciding whether the next 3-hour interval should contain a DAQ run.</p>
+<p>The control service shall publish one retained payload every 3 hours, aligned to:</p>
+<ul>
+<li><code>00:00 UTC</code></li>
+<li><code>03:00 UTC</code></li>
+<li><code>06:00 UTC</code></li>
+<li><code>09:00 UTC</code></li>
+<li><code>12:00 UTC</code></li>
+<li><code>15:00 UTC</code></li>
+<li><code>18:00 UTC</code></li>
+<li><code>21:00 UTC</code></li>
+</ul>
+<p>After making that decision, each payload shall explicitly describe the interval <code>[window_start, window_end)</code> and shall explicitly indicate whether a DAQ run exists inside that interval. If no DAQ run is planned inside the next 3-hour window, the payload shall explicitly state <code>plan_type = none</code>. Silence is not a valid schedule.</p>
+</section>
+<section id="window-payload-examples" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="window-payload-examples"><span class="header-section-number">5.5</span> Window payload examples</h3>
+<p>Window payload with no DAQ:</p>
+<p>Topic:</p>
+<p><code>rosehips/&lt;set_id&gt;/acc/acc3/daq/window</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"protocol_version"</span><span class="fu">:</span> <span class="st">"1.0"</span><span class="fu">,</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"set_id"</span><span class="fu">:</span> <span class="st">"set1"</span><span class="fu">,</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_class"</span><span class="fu">:</span> <span class="st">"acc"</span><span class="fu">,</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_id"</span><span class="fu">:</span> <span class="st">"acc3"</span><span class="fu">,</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"schedule_id"</span><span class="fu">:</span> <span class="st">"acc3-20260402T030000Z"</span><span class="fu">,</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"window_start"</span><span class="fu">:</span> <span class="st">"2026-04-02T03:00:00Z"</span><span class="fu">,</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"window_end"</span><span class="fu">:</span> <span class="st">"2026-04-02T06:00:00Z"</span><span class="fu">,</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"plan_type"</span><span class="fu">:</span> <span class="st">"none"</span><span class="fu">,</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"published_at"</span><span class="fu">:</span> <span class="st">"2026-04-02T03:00:00Z"</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Window payload with DAQ:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"protocol_version"</span><span class="fu">:</span> <span class="st">"1.0"</span><span class="fu">,</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"set_id"</span><span class="fu">:</span> <span class="st">"set1"</span><span class="fu">,</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_class"</span><span class="fu">:</span> <span class="st">"acc"</span><span class="fu">,</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_id"</span><span class="fu">:</span> <span class="st">"acc3"</span><span class="fu">,</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"schedule_id"</span><span class="fu">:</span> <span class="st">"acc3-20260402T030000Z"</span><span class="fu">,</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"session_id"</span><span class="fu">:</span> <span class="st">"session-20260402-0415"</span><span class="fu">,</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"window_start"</span><span class="fu">:</span> <span class="st">"2026-04-02T03:00:00Z"</span><span class="fu">,</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"window_end"</span><span class="fu">:</span> <span class="st">"2026-04-02T06:00:00Z"</span><span class="fu">,</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"plan_type"</span><span class="fu">:</span> <span class="st">"daq_window"</span><span class="fu">,</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"daq_start"</span><span class="fu">:</span> <span class="st">"2026-04-02T04:15:00Z"</span><span class="fu">,</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"daq_stop"</span><span class="fu">:</span> <span class="st">"2026-04-02T04:45:00Z"</span><span class="fu">,</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"published_at"</span><span class="fu">:</span> <span class="st">"2026-04-02T03:00:00Z"</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The same structure applies to wind nodes, with <code>node_class = "wnd"</code> and a wind-node topic. For each provisioned wind node, the control service shall publish a retained schedule on that node’s topic.</p>
+</section>
+<section id="node-behavior" class="level3" data-number="5.6">
+<h3 data-number="5.6" class="anchored" data-anchor-id="node-behavior"><span class="header-section-number">5.6</span> Node behavior</h3>
+<p>On each periodic wake:</p>
+<ol type="1">
+<li>The node shall connect to the network and broker.</li>
+<li>The node shall read the retained <code>daq/window</code> payload for its own topic.</li>
+<li>If <code>plan_type = none</code>, the node shall publish a report and return to sleep.</li>
+<li>If <code>plan_type = daq_window</code> and <code>now &lt; daq_start</code>, the node SHOULD sleep until just before <code>daq_start</code>.</li>
+<li>The node shall start DAQ at <code>daq_start</code>.</li>
+<li>The node shall stop DAQ at <code>daq_stop</code>.</li>
+<li>The node shall publish stop and summary reports.</li>
+<li>The node shall sleep until the next periodic wake or internal deadline.</li>
+</ol>
+</section>
+<section id="validity-rules" class="level3" data-number="5.7">
+<h3 data-number="5.7" class="anchored" data-anchor-id="validity-rules"><span class="header-section-number">5.7</span> Validity rules</h3>
+<p>The node shall ignore a retained schedule if:</p>
+<ul>
+<li><code>window_end &lt;= now</code></li>
+<li><code>daq_stop &lt;= daq_start</code></li>
+<li>the <code>schedule_id</code> was already completed</li>
+</ul>
+<p>Nodes SHOULD reject schedules whose time interval is invalid. Nodes SHOULD prefer RTC-corrected or GNSS-corrected UTC time when available. If local time is not trustworthy, a node SHOULD publish a <code>time_invalid</code> report rather than executing a speculative DAQ window.</p>
+</section>
+<section id="report-examples-1" class="level3" data-number="5.8">
+<h3 data-number="5.8" class="anchored" data-anchor-id="report-examples-1"><span class="header-section-number">5.8</span> Report examples</h3>
+<p>No-DAQ case:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"protocol_version"</span><span class="fu">:</span> <span class="st">"1.0"</span><span class="fu">,</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"set_id"</span><span class="fu">:</span> <span class="st">"set1"</span><span class="fu">,</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_class"</span><span class="fu">:</span> <span class="st">"acc"</span><span class="fu">,</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_id"</span><span class="fu">:</span> <span class="st">"acc3"</span><span class="fu">,</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"schedule_id"</span><span class="fu">:</span> <span class="st">"acc3-20260402T030000Z"</span><span class="fu">,</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"event"</span><span class="fu">:</span> <span class="st">"no_daq_in_window"</span><span class="fu">,</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"published_at"</span><span class="fu">:</span> <span class="st">"2026-04-02T03:00:12Z"</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>DAQ started:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"protocol_version"</span><span class="fu">:</span> <span class="st">"1.0"</span><span class="fu">,</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"set_id"</span><span class="fu">:</span> <span class="st">"set1"</span><span class="fu">,</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_class"</span><span class="fu">:</span> <span class="st">"acc"</span><span class="fu">,</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_id"</span><span class="fu">:</span> <span class="st">"acc3"</span><span class="fu">,</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"schedule_id"</span><span class="fu">:</span> <span class="st">"acc3-20260402T030000Z"</span><span class="fu">,</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"session_id"</span><span class="fu">:</span> <span class="st">"session-20260402-0415"</span><span class="fu">,</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"event"</span><span class="fu">:</span> <span class="st">"daq_started"</span><span class="fu">,</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"published_at"</span><span class="fu">:</span> <span class="st">"2026-04-02T04:15:00Z"</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>DAQ stopped:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"protocol_version"</span><span class="fu">:</span> <span class="st">"1.0"</span><span class="fu">,</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"set_id"</span><span class="fu">:</span> <span class="st">"set1"</span><span class="fu">,</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_class"</span><span class="fu">:</span> <span class="st">"acc"</span><span class="fu">,</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"node_id"</span><span class="fu">:</span> <span class="st">"acc3"</span><span class="fu">,</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"schedule_id"</span><span class="fu">:</span> <span class="st">"acc3-20260402T030000Z"</span><span class="fu">,</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"session_id"</span><span class="fu">:</span> <span class="st">"session-20260402-0415"</span><span class="fu">,</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"event"</span><span class="fu">:</span> <span class="st">"daq_stopped"</span><span class="fu">,</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"published_at"</span><span class="fu">:</span> <span class="st">"2026-04-02T04:45:00Z"</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="sequence-summary-1" class="level3" data-number="5.9">
+<h3 data-number="5.9" class="anchored" data-anchor-id="sequence-summary-1"><span class="header-section-number">5.9</span> Sequence summary</h3>
+<ol type="1">
+<li>The node wakes on its normal 3-hour schedule.</li>
+<li>The node fetches the retained <code>daq/window</code> payload.</li>
+<li>The node either returns to sleep immediately or arms itself for the DAQ interval contained in the payload.</li>
+<li>The node starts and stops DAQ according to the scheduled window.</li>
+<li>The node publishes completion reports and returns to sleep.</li>
+</ol>
+</section>
+</section>
+<section id="version-1-profile" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="version-1-profile"><span class="header-section-number">6</span> Version 1 Profile</h2>
+<p>The minimum conforming version of this protocol shall implement the following:</p>
+<ul>
+<li>retained desired-state topics for provisioned charge controllers</li>
+<li>retained 3-hour DAQ window topics for provisioned accelerometer and wind nodes</li>
+<li>a cloud-hosted control service that turns wind-based operational decisions into retained MQTT commands and schedules</li>
+<li>UTC timestamps in every command, schedule, and report payload</li>
+<li>explicit <code>plan_type = none</code> messages for empty accelerometer and wind windows</li>
+<li>mandatory <code>shutdown_started</code> reporting from the Raspberry Pi, plus timeout-based forced power removal if that report is missing</li>
+<li>stable <code>session_id</code> values across all payloads belonging to the same DAQ run</li>
+<li>support for deployments that provision <code>n</code> camera subsystems, <code>m</code> accelerometer nodes, and <code>k</code> wind nodes</li>
+</ul>
+</section>
+<section id="sec-qos1" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="sec-qos1"><span class="header-section-number">7</span> Appendix. MQTT QoS 1 Semantics</h2>
+<p>MQTT QoS 1 provides <strong>at-least-once delivery</strong> between broker and client. A sender publishes a message and expects a <code>PUBACK</code> from the receiver. If the acknowledgement is not observed, the sender may retransmit the same MQTT message.</p>
+<p>For this protocol, QoS 1 is selected because:</p>
+<ul>
+<li>command and schedule messages are important enough that best-effort delivery is insufficient</li>
+<li>sleeping nodes may only be online briefly, so message loss during that window is costly</li>
+<li>duplicate delivery is acceptable when protocol payloads are idempotent</li>
+</ul>
+<p>Operational consequences:</p>
+<ul>
+<li>a node may receive the same retained or retransmitted payload more than once</li>
+<li>the protocol therefore requires <code>command_id</code>, <code>schedule_id</code>, and <code>session_id</code> to support duplicate detection and correlation</li>
+<li>nodes shall treat repeated receipt of the same command or schedule identifier as a replay, not as a new hardware action</li>
+<li>QoS 1 does not guarantee exactly-once execution; it guarantees delivery with possible duplicates</li>
+</ul>
+<p>QoS 1 is therefore paired with idempotent node behavior. Delivery reliability is provided by MQTT, while duplicate suppression is provided by the protocol state machine in each node.</p>
+</section>
+<section id="sec-broker-access" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="sec-broker-access"><span class="header-section-number">8</span> Appendix. Broker Access Example</h2>
+<p>An MQTT broker is available for the ROSEHIPS project.</p>
+<ul>
+<li>MQTT broker: <code>mqtt.shmcloud.org</code></li>
+<li>Port: <code>8883</code></li>
+<li>User ID: <code>mqtt-client</code></li>
+<li>Password: <code>hXlOooy6yTdT8IW3hyNbokkN</code></li>
+</ul>
+<p>Example subscribe command:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mosquitto_sub</span> <span class="at">-h</span> mqtt.shmcloud.org <span class="at">-p</span> 8883 <span class="dt">\</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-u</span> mqtt-client <span class="at">-P</span> <span class="st">'hXlOooy6yTdT8IW3hyNbokkN'</span> <span class="dt">\</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-t</span> <span class="st">'devices/wing1a/status'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Example publish command:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mosquitto_pub</span> <span class="at">-h</span> mqtt.shmcloud.org <span class="at">-p</span> 8883 <span class="dt">\</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-u</span> mqtt-client <span class="at">-P</span> <span class="st">'hXlOooy6yTdT8IW3hyNbokkN'</span> <span class="dt">\</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-t</span> <span class="st">'devices/wing1a/status'</span> <span class="dt">\</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-m</span> <span class="st">'{"online":true,"ts":"2026-04-04T00:00:00Z"}'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="python-command-publisher-script" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="python-command-publisher-script"><span class="header-section-number">8.1</span> Python command-publisher script</h3>
+<p>A combined example cloud-control script is available in the same directory as this notebook:</p>
+<ul>
+<li><code>camera1_publish_daq.py</code> publishes a retained <code>start_daq</code> or <code>stop_daq</code> command to <code>rosehips/set1/camera/camera1/daq/desired</code></li>
+</ul>
+<p>The script takes one positional argument, <code>start</code> or <code>stop</code>, and an optional <code>--session-id</code> argument. When a stop command is intended to stop a previously started DAQ session, the same <code>session_id</code> should be used in both commands.</p>
+<p>Example start and stop commands for the same session:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> camera1_publish_daq.py start <span class="at">--session-id</span> session-20260404T150000Z</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> camera1_publish_daq.py stop <span class="at">--session-id</span> session-20260404T150000Z</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Example output:</p>
+<pre class="text"><code>Published start_daq to rosehips/set1/camera/camera1/daq/desired
+session_id=session-20260404T150000Z
+
+Published stop_daq to rosehips/set1/camera/camera1/daq/desired
+session_id=session-20260404T150000Z</code></pre>
+<section id="source-code-camera1_publish_daq.py" class="level4" data-number="8.1.1">
+<h4 data-number="8.1.1" class="anchored" data-anchor-id="source-code-camera1_publish_daq.py"><span class="header-section-number">8.1.1</span> Source code: <code>camera1_publish_daq.py</code></h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env python3</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">"""Publish a retained DAQ desired-state command for ROSEHIPS set1 camera1."""</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> __future__ <span class="im">import</span> annotations</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> argparse</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ssl</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> uuid</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime, timezone</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> paho.mqtt.client <span class="im">as</span> mqtt</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ImportError</span> <span class="im">as</span> exc:  <span class="co"># pragma: no cover - import guard</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">SystemExit</span>(</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"This script requires paho-mqtt. Install it with: pip install paho-mqtt"</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    ) <span class="im">from</span> exc</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>BROKER_HOST <span class="op">=</span> <span class="st">"mqtt.shmcloud.org"</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>BROKER_PORT <span class="op">=</span> <span class="dv">8883</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>BROKER_USERNAME <span class="op">=</span> <span class="st">"mqtt-client"</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>BROKER_PASSWORD <span class="op">=</span> <span class="st">"hXlOooy6yTdT8IW3hyNbokkN"</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>TOPIC <span class="op">=</span> <span class="st">"rosehips/set1/camera/camera1/daq/desired"</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>PROTOCOL_VERSION <span class="op">=</span> <span class="st">"1.0"</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>SET_ID <span class="op">=</span> <span class="st">"set1"</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>NODE_CLASS <span class="op">=</span> <span class="st">"camera"</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>NODE_ID <span class="op">=</span> <span class="st">"camera1"</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>ACTION_TO_DESIRED_STATE <span class="op">=</span> {</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"start"</span>: <span class="st">"start_daq"</span>,</span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"stop"</span>: <span class="st">"stop_daq"</span>,</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> utc_now() <span class="op">-&gt;</span> datetime:</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> datetime.now(timezone.utc)</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> isoformat_z(ts: datetime) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ts.astimezone(timezone.utc).strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">T%H:%M:%SZ"</span>)</span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> default_session_id(ts: datetime) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"session-"</span> <span class="op">+</span> ts.astimezone(timezone.utc).strftime(<span class="st">"%Y%m</span><span class="sc">%d</span><span class="st">T%H%M%SZ"</span>)</span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> command_id(ts: datetime) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>NODE_ID<span class="sc">}</span><span class="ss">-cmd-</span><span class="sc">{</span>ts<span class="sc">.</span>astimezone(timezone.utc)<span class="sc">.</span>strftime(<span class="st">'%Y%m</span><span class="sc">%d</span><span class="st">T%H%M%SZ'</span>)<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_payload(action: <span class="bu">str</span>, session: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>    now <span class="op">=</span> utc_now()</span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>    payload <span class="op">=</span> {</span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a>        <span class="st">"protocol_version"</span>: PROTOCOL_VERSION,</span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>        <span class="st">"set_id"</span>: SET_ID,</span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>        <span class="st">"node_class"</span>: NODE_CLASS,</span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>        <span class="st">"node_id"</span>: NODE_ID,</span>
+<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a>        <span class="st">"command_id"</span>: command_id(now),</span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a>        <span class="st">"session_id"</span>: session,</span>
+<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>        <span class="st">"desired_state"</span>: ACTION_TO_DESIRED_STATE[action],</span>
+<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a>        <span class="st">"published_at"</span>: isoformat_z(now),</span>
+<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> json.dumps(payload, separators<span class="op">=</span>(<span class="st">","</span>, <span class="st">":"</span>))</span>
+<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_client(action: <span class="bu">str</span>) <span class="op">-&gt;</span> mqtt.Client:</span>
+<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a>    client <span class="op">=</span> mqtt.Client(</span>
+<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a>        callback_api_version<span class="op">=</span>mqtt.CallbackAPIVersion.VERSION2,</span>
+<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a>        client_id<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>NODE_ID<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>action<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>uuid<span class="sc">.</span>uuid4()<span class="sc">.</span><span class="bu">hex</span>[:<span class="dv">8</span>]<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a>        protocol<span class="op">=</span>mqtt.MQTTv311,</span>
+<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a>    client.username_pw_set(BROKER_USERNAME, BROKER_PASSWORD)</span>
+<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a>    client.tls_set(tls_version<span class="op">=</span>ssl.PROTOCOL_TLS_CLIENT, cert_reqs<span class="op">=</span>ssl.CERT_REQUIRED)</span>
+<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> client</span>
+<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> publish(action: <span class="bu">str</span>, payload: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a>    client <span class="op">=</span> make_client(action)</span>
+<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a>    client.<span class="ex">connect</span>(BROKER_HOST, BROKER_PORT, keepalive<span class="op">=</span><span class="dv">60</span>)</span>
+<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a>    client.loop_start()</span>
+<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a>        info <span class="op">=</span> client.publish(TOPIC, payload<span class="op">=</span>payload, qos<span class="op">=</span><span class="dv">1</span>, retain<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a>        info.wait_for_publish()</span>
+<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> info.rc <span class="op">!=</span> mqtt.MQTT_ERR_SUCCESS:</span>
+<span id="cb16-89"><a href="#cb16-89" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">RuntimeError</span>(<span class="ss">f"MQTT publish failed with rc=</span><span class="sc">{</span>info<span class="sc">.</span>rc<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-90"><a href="#cb16-90" aria-hidden="true" tabindex="-1"></a>    <span class="cf">finally</span>:</span>
+<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a>        client.loop_stop()</span>
+<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a>        client.disconnect()</span>
+<span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_args() <span class="op">-&gt;</span> argparse.Namespace:</span>
+<span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a>    parser <span class="op">=</span> argparse.ArgumentParser()</span>
+<span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a>    parser.add_argument(</span>
+<span id="cb16-98"><a href="#cb16-98" aria-hidden="true" tabindex="-1"></a>        <span class="st">"action"</span>,</span>
+<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a>        choices<span class="op">=</span><span class="bu">sorted</span>(ACTION_TO_DESIRED_STATE),</span>
+<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a>        <span class="bu">help</span><span class="op">=</span><span class="st">"Publish either start_daq or stop_daq."</span>,</span>
+<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-102"><a href="#cb16-102" aria-hidden="true" tabindex="-1"></a>    parser.add_argument(</span>
+<span id="cb16-103"><a href="#cb16-103" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--session-id"</span>,</span>
+<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a>        <span class="bu">help</span><span class="op">=</span>(</span>
+<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Session identifier to publish. Use the same value for the matching "</span></span>
+<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a>            <span class="st">"start and stop commands. Defaults to a UTC timestamp-based value."</span></span>
+<span id="cb16-107"><a href="#cb16-107" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb16-108"><a href="#cb16-108" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-109"><a href="#cb16-109" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> parser.parse_args()</span>
+<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-111"><a href="#cb16-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-112"><a href="#cb16-112" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main() <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb16-113"><a href="#cb16-113" aria-hidden="true" tabindex="-1"></a>    args <span class="op">=</span> parse_args()</span>
+<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a>    session <span class="op">=</span> args.session_id <span class="kw">or</span> default_session_id(utc_now())</span>
+<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a>    payload <span class="op">=</span> build_payload(args.action, session)</span>
+<span id="cb16-116"><a href="#cb16-116" aria-hidden="true" tabindex="-1"></a>    publish(args.action, payload)</span>
+<span id="cb16-117"><a href="#cb16-117" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Published </span><span class="sc">{</span>ACTION_TO_DESIRED_STATE[args.action]<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>TOPIC<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-118"><a href="#cb16-118" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"session_id=</span><span class="sc">{</span>session<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-119"><a href="#cb16-119" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb16-120"><a href="#cb16-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-121"><a href="#cb16-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-122"><a href="#cb16-122" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb16-123"><a href="#cb16-123" aria-hidden="true" tabindex="-1"></a>    sys.exit(main())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
